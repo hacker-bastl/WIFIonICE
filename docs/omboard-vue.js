@@ -9,7 +9,7 @@ const omboardVue = Vue.extend({
       request.addEventListener('load', function() {
         console.log(request.responseText);
       });
-      request.open(this.data.url);
+      request.open(this.url);
       request.send(null);
     },
 
