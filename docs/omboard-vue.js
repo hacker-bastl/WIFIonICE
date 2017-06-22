@@ -1,7 +1,7 @@
 // https://vuejs.org/v2/guide/mixins.html
 const omboardVue = Vue.extend({
   created: function() {
-    this.load();
+    setTimeout(this.load, 2E3);
   },
   methods: {
     load: function() {
