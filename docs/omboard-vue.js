@@ -14,6 +14,7 @@ const omboardVue = Vue.extend({
       var script = document.createElement('script');
       script.setAttribute('type', 'text/javascript');
       script.setAttribute('src', url);
+      document.head.appendChild(script);
     },
   }
 });
