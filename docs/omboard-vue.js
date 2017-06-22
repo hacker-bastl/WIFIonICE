@@ -13,7 +13,7 @@ const omboardVue = Vue.extend({
         delete(window[random_name]);
       };
       var script = document.createElement('script');
-      script.setAttribute('type', 'text/javascript');
+      script.setAttribute('type', 'application/json');
       script.setAttribute('src', url);
       document.head.appendChild(script);
     },
