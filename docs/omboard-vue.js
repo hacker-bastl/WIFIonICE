@@ -5,13 +5,15 @@ const omboardVue = Vue.extend({
   },
   methods: {
     load: function() {
-      var request = new XMLHttpRequest();
-      request.addEventListener('load', function() {
-        console.log(request.responseText);
-      });
-      request.open('GET', this.url);
-      request.send(null);
+      var random_name = String(Math.random()).slice(-8);
+      var url = this.url + '?callback=' + random_name;
+      var callback = window[random_name] = function(data) {
+        console.log(data);
+        delete(window[random_name]);
+      };
+      var script = document.createElement('script');
+      script.setAttribute('type', 'text/javascript');
+      script.setAttribute('src', url);
     },
-
   }
 });
