@@ -6,7 +6,7 @@ const omboardVue = Vue.extend({
   },
   methods: {
     load: function(url) {
-      var random_name = String(Math.random()).slice(-8);
+      var random_name = 'callback_' + String(Math.random()).slice(-8);
       url += '?callback=' + random_name;
       var callback = window[random_name] = function(data) {
         console.log(data);
