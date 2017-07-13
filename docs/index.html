@@ -20,12 +20,12 @@
   </head>
   <body>
     <section name="position">
-
-      position: {{ altitude }} / {{ longitude }}
-      altitude: {{ altitude }}
-      speed: {{ speed }}
-      updated: {{ time }}
-
+      <ul>
+        <li>position: {{ parseFloat( altitude ).toFixed( 2 ) }} / {{ parseFloat( longitude ).toFixed( 2 ) }}</li>
+        <li>altitude: {{ altitude }}</li>
+        <li>speed: {{ speed }}</li>
+        <li>updated: {{ new Date( time * 1E3 ).toJSON() }}</li>
+      </ul>
     </section>
     <script type="text/javascript">
 
@@ -44,10 +44,10 @@
 
     </script>
     <section name="connectivity">
-
-      train IP: {{ bundleip }}
-      train online: {{ online }}
-
+      <ul>
+        <li>train IP: {{ bundleip }}</li>
+        <li>train online: {{ !! online ? 'yes' : 'no' }}</li>
+      </ul>
 
       <!--
           "links":[
@@ -130,14 +130,14 @@
 
     </script>
     <section name="user">
-
-      user ip: {{ ip }}
-      user mac: {{ mac }}
-      user online: {{ online }} / {{ timeused }}
-      user logged in: {{ authenticated }}
-      user class: {{ userclass }}
-      user data used: {{ data_download_used }} / {{ data_download_limit }}
-
+      <ul>
+        <li>user ip: {{ ip }}</li>
+        <li>user mac: {{ mac }}</li>
+        <li>user online: {{ !! online ? 'yes' : 'no' }} / {{ timeused }}</li>
+        <li>user logged in: {{ !! authenticated ? 'yes' : 'no' }}</li>
+        <li>user class: {{ userclass }}</li>
+        <li>user data used: {{ parseFloat( data_download_used / 1024 / 1024 ).toFixed( 2 ) }} / {{ parseFloat( data_download_limit / 1024 / 1024 ) }}</li>
+      </ul>
     </section>
     <script type="text/javascript">
 
@@ -159,10 +159,10 @@
 
     </script>
     <section name="users">
-
-      total WiFi users: {{ total }}
-      online WiFi users: {{ online }}
-
+      <ul>
+        <li>total WiFi users: {{ total }}</li>
+        <li>online WiFi users: {{ online }}</li>
+      </ul>
     </section>
     <script type="text/javascript">
 

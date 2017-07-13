@@ -1,10 +1,11 @@
 // https://vuejs.org/v2/guide/mixins.html
 const omboardVue = Vue.extend({
   created: function() {
-    this.load(this.url);
+    this.load();
+    setInterval(this.load, 1E4);
   },
   methods: {
-    load: function(url) {
+    load: function() {
       var instance = this;
       var random_name = 'callback_' + String(Math.random()).slice(-8);
       window[random_name] = function(data) {
@@ -12,7 +13,7 @@ const omboardVue = Vue.extend({
         delete(window[random_name]);
       };
       var script = document.createElement('script');
-      script.setAttribute('src', url + '?callback=' + random_name);
+      script.setAttribute('src', instance.url + '?callback=' + random_name);
       script.setAttribute('type', 'text/javascript');
       document.head.appendChild(script);
     },
