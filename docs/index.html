@@ -5,13 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title> Testing DB ICE Portal APIs ... </title>
-
-    <!-- https://github.com/hacker-bastl/omboard -->
-
     <link href="//www.bahn.de/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="//www.bahn.de/common/view/static/v8/img/db_em_rgb_100px.svg" rel="apple-touch-icon" type="image/svg" />
+
+    <title> Testing DB ICE Portal APIs ... </title>
 
     <script src="//unpkg.com/vue" crossorigin="anonymous" type="text/javascript"></script>
     <script src="omboard-vue.js" type="text/javascript"></script>
@@ -22,20 +19,20 @@
     </style>
   </head>
   <body>
-
     <section name="position">
 
-      position: {{ latitude }} / {{ longitude }}
+      position: {{ altitude }} / {{ longitude }}
       altitude: {{ altitude }}
       speed: {{ speed }}
       updated: {{ time }}
 
     </section>
     <script type="text/javascript">
+
       const positionVue = new omboardVue({
         el: 'section[name=position]',
         data: {
-          url: 'https://www.ombord.info/api/jsonp/position/',
+          url: '/api/jsonp/position/',
 
           altitude: 'loading...',
           latitude: 'loading...',
@@ -44,8 +41,8 @@
           time: 'loading...',
         },
       });
-    </script>
 
+    </script>
     <section name="connectivity">
 
       train IP: {{ bundleip }}
@@ -119,18 +116,19 @@
 
     </section>
     <script type="text/javascript">
+
       const connectivityVue = new omboardVue({
         el: 'section[name=connectivity]',
         data: {
-          url: 'https://www.ombord.info/api/jsonp/connectivity/',
+          url: '/api/jsonp/connectivity/',
 
           bundleip: '127.0.0.1',
           online: 0,
           links: [],
         },
       });
-    </script>
 
+    </script>
     <section name="user">
 
       user ip: {{ ip }}
@@ -142,10 +140,11 @@
 
     </section>
     <script type="text/javascript">
+
       const userVue = new omboardVue({
         el: 'section[name=user]',
         data: {
-          url: 'https://www.ombord.info/api/jsonp/user/',
+          url: '/api/jsonp/user/',
 
           ip: 'loading...',
           mac: 'loading...',
@@ -157,8 +156,8 @@
           data_download_limit: 0,
         },
       });
-    </script>
 
+    </script>
     <section name="users">
 
       total WiFi users: {{ total }}
@@ -166,15 +165,17 @@
 
     </section>
     <script type="text/javascript">
+
       const usersVue = new omboardVue({
         el: 'section[name=users]',
         data: {
-          url: 'https://www.ombord.info/api/jsonp/users/',
+          url: '/api/jsonp/users/',
 
           total: 0,
           online: 0,
         },
       });
+
     </script>
 
   </body>
