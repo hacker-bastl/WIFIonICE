@@ -13,7 +13,7 @@ const omboardVue = Vue.extend({
         delete(window[random_name]);
       };
       var script = document.createElement('script');
-      script.setAttribute('src', instance.url + '?callback=' + random_name);
+      script.setAttribute('src', 'https://www.ombord.info' + instance.url + '?callback=' + random_name);
       script.setAttribute('type', 'text/javascript');
       document.head.appendChild(script);
     },
