@@ -1,0 +1,19 @@
+<user version="1.0">
+  <ip type="string">127.0.0.1</ip>
+  <mac type="string">00:00:00:00:00:00</mac>
+  <online type="integer">0</online>
+  <timeleft type="integer">0</timeleft>
+  <authenticated type="integer">0</authenticated>
+  <userclass type="integer">0</userclass>
+  <expires type="string">Never</expires>
+  <timeused type="integer">0</timeused>
+  <data_download_used type="integer">0</data_download_used>
+  <data_upload_used type="integer">0</data_upload_used>
+  <data_total_used type="integer">0</data_total_used>
+  <data_download_limit type="integer">0</data_download_limit>
+  <data_upload_limit type="integer">0</data_upload_limit>
+  <data_total_limit type="integer">0</data_total_limit>
+  <bandwidth_download_limit type="integer">0</bandwidth_download_limit>
+  <bandwidth_upload_limit type="integer">0</bandwidth_upload_limit>
+  <cap_level type="integer">0</cap_level>
+</user>
