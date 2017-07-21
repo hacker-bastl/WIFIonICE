@@ -11,10 +11,10 @@ const omboardVue = Vue.extend({
       var request = new XMLHttpRequest();
       request.addEventListener('load', function() {
         var searchKey = instance.url.split('/').pop().split('.').shift();
-        var dataNodes = request.responseXML || new DOMParser()
-          .parseFromString(request.responseText, 'text/xml')
-          .querySelector(searchKey).childNodes;
-        // TODO: deep recursion for connectivity data
+        var responseXML = request.responseXML || new DOMParser()
+          .parseFromString(request.responseText, 'text/xml');
+        var dataNodes = responseXML.querySelector(searchKey).childNodes;
+        // TODO: deep recursion for connectivity data?
         Array.prototype.slice.call(dataNodes).forEach(function(node) {
           if (node.nodeType == 1) instance[node.nodeName] = node.textContent;
         });
