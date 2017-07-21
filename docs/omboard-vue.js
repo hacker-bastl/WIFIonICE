@@ -14,13 +14,11 @@ const omboardVue = Vue.extend({
         var dataNodes = request.responseXML || new DOMParser()
           .parseFromString(request.responseText, 'text/xml')
           .querySelector(searchKey).childNodes;
-        Array.prototype.slice.call(dataNodes)
-          .filter(function(node) {
-            return node.nodeType == 1;
-            // TODO: deep recursion for connectivity data
-          }).forEach(function(node) {
-            instance[node.nodeName] = node.textContent;
-          });
+        // TODO: deep recursion for connectivity data
+        Array.prototype.slice.call(dataNodes).forEach(function(node) {
+          if (node.nodeType == 1) instance[node.nodeName] = node.textContent;
+        });
+        console.log(instance);
       });
       request.open('GET', '//www.ombord.info' + instance.url);
       request.send(null);

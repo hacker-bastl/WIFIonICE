@@ -13,17 +13,6 @@
     <!-- https://hannover.ccc.de/~nexus/dbwifi/chapter2.html -->
     <meta name="referrer" content="no-referrer" />
 
-
-    <script src="//www.ombord.info/api/jsonp/position/?callback=console.log"
-      crossorigin="anonymous" type="text/javascript"></script>
-    <script src="//www.ombord.info/api/jsonp/user/?callback=console.log"
-      crossorigin="anonymous" type="text/javascript"></script>
-    <script src="//www.ombord.info/api/jsonp/users/?callback=console.log"
-      crossorigin="anonymous" type="text/javascript"></script>
-    <script src="//www.ombord.info/api/jsonp/connectivity/?callback=console.log"
-      crossorigin="anonymous" type="text/javascript"></script>
-
-
     <!-- script src="//unpkg.com/vue" crossorigin="anonymous" type="text/javascript"></script -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"
       crossorigin="anonymous" type="text/javascript"></script>
@@ -38,7 +27,7 @@
   <body>
     <section name="position">
       <ul>
-        <li>position: {{ parseFloat( altitude ).toFixed( 2 ) }} / {{ parseFloat( longitude ).toFixed( 2 ) }}</li>
+        <li>position: {{ altitude }} / {{ longitude }}</li>
         <li>altitude: {{ altitude }}</li>
         <li>speed: {{ speed }}</li>
         <li>updated: {{ new Date( time * 1E3 ).toJSON() }}</li>
@@ -56,92 +45,6 @@
           longitude: 'loading...',
           speed: 'loading...',
           time: 'loading...',
-        },
-      });
-
-    </script>
-    <section name="connectivity">
-      <ul>
-        <li>train IP: {{ bundleip }}</li>
-        <li>train online: {{ !! online ? 'yes' : 'no' }}</li>
-      </ul>
-
-      <!--
-          "links":[
-              {
-                  "device_subtype":"mc7304",
-                  "device_state":"up",
-                  "link_state":"available",
-
-                  "rssi":"-63",
-                  "technology":"lte",
-
-                  "apninfo":"railnet.telekom,t-mobile,tm",
-              },
-              {
-                  "device_subtype":"mc7304",
-                  "device_state":"up",
-                  "link_state":"available",
-
-                  "rssi":"-58",
-                  "technology":"lte",
-
-                  "apninfo":"fv1.deutschebahn.com,-1,-1",
-              },
-              {
-                  "device_subtype":"mc7455",
-                  "device_state":"up",
-                  "link_state":"available",
-
-                  "rssi":"-92",
-                  "technology":"umts",
-
-                  "apninfo":"railnet.telekom,t-mobile,tm",
-              },
-              {
-                  "device_subtype":"mc7455",
-                  "device_state":"up",
-                  "link_state":"available",
-
-                  "rssi":"-58",
-                  "technology":"lte",
-
-                  "apninfo":"railnet.telekom,t-mobile,tm",
-              },
-              {
-                  "device_subtype":"mc7455",
-                  "device_state":"up",
-                  "link_state":"available",
-
-                  "rssi":"-87",
-                  "technology":"dc-hspa+",
-
-                  "apninfo":"fv1.deutschebahn.com,-1,-1",
-              },
-              {
-                  "device_subtype":"mc7304",
-                  "device_state":"up",
-                  "link_state":"available",
-
-                  "rssi":"-103",
-                  "technology":"dc-hspa+",
-
-                  "apninfo":"railnet.telekom,t-mobile,tm",
-              }
-          ]
-        -->
-
-    </section>
-    <script type="text/javascript">
-
-      const connectivityVue = new omboardVue({
-        el: 'section[name=connectivity]',
-        data: {
-          url: '/api/xml/connectivity/',
-
-          bundleip: '127.0.0.1',
-          online: 0,
-          links: [],
         },
       });
 
