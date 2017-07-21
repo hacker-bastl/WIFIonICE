@@ -12,7 +12,7 @@ const omboardVue = Vue.extend({
       request.addEventListener('load', function() {
         var responseXML = request.responseXML || new DOMParser()
           .parseFromString(request.responseText, 'text/xml');
-        var searchKey = path.split('/').pop();
+        var searchKey = instance.url.split('/').pop();
         var dataNodes = responseXML.querySelector(searchKey).childNodes;
         var valueMap = Array.prototype.slice.call(dataNodes)
           .filter(function(node) {
