@@ -7,15 +7,23 @@ const omboardVue = Vue.extend({
   methods: {
     load: function() {
       var instance = this;
-      var random_name = 'callback_' + String(Math.random()).slice(-8);
-      window[random_name] = function(data) {
-        for (var key in data) instance[key] = data[key];
-        delete(window[random_name]);
-      };
-      var script = document.createElement('script');
-      script.setAttribute('src', 'https://www.ombord.info' + instance.url + '?callback=' + random_name);
-      script.setAttribute('type', 'text/javascript');
-      document.head.appendChild(script);
+
+      var request = new XMLHttpRequest();
+      request.addEventListener('load', function() {
+        var responseXML = request.responseXML || new DOMParser()
+          .parseFromString(request.responseText, 'text/xml');
+        var searchKey = path.split('/').pop();
+        var dataNodes = responseXML.querySelector(searchKey).childNodes;
+        var valueMap = Array.prototype.slice.call(dataNodes)
+          .filter(function(node) {
+            return node.nodeType == 1;
+            // TODO: deep recursion for connectivity data
+          }).forEach(function(node) {
+            instance[node.nodeName] = node.textContent;
+          });
+      });
+      request.open('GET', '//www.ombord.info' + path);
+      request.send(null);
     },
   },
 });
