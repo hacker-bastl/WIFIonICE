@@ -20,7 +20,7 @@ const omboardVue = Vue.extend({
         });
       });
       // request.open('GET', '//www.ombord.info' + instance.url);
-      request.open('GET', '/mock' + instance.url.slice(8));
+      request.open('GET', '/mock' + instance.url.slice(8) + '.xml');
       request.send(null);
     },
   },
