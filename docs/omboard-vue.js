@@ -22,7 +22,7 @@ const omboardVue = Vue.extend({
             instance[node.nodeName] = node.textContent;
           });
       });
-      request.open('GET', '//www.ombord.info' + path);
+      request.open('GET', '//www.ombord.info' + instance.url);
       request.send(null);
     },
   },

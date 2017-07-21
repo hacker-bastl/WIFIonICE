@@ -45,7 +45,7 @@
       const positionVue = new omboardVue({
         el: 'section[name=position]',
         data: {
-          url: '/api/jsonp/position/',
+          url: '/api/xml/position/',
 
           altitude: 'loading...',
           latitude: 'loading...',
@@ -133,7 +133,7 @@
       const connectivityVue = new omboardVue({
         el: 'section[name=connectivity]',
         data: {
-          url: '/api/jsonp/connectivity/',
+          url: '/api/xml/connectivity/',
 
           bundleip: '127.0.0.1',
           online: 0,
@@ -157,7 +157,7 @@
       const userVue = new omboardVue({
         el: 'section[name=user]',
         data: {
-          url: '/api/jsonp/user/',
+          url: '/api/xml/user/',
 
           ip: 'loading...',
           mac: 'loading...',
@@ -182,7 +182,7 @@
       const usersVue = new omboardVue({
         el: 'section[name=users]',
         data: {
-          url: '/api/jsonp/users/',
+          url: '/api/xml/users/',
 
           total: 0,
           online: 0,
