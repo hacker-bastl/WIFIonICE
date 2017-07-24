@@ -1,10 +1,12 @@
 ## about
 
-"proof of concept" to show which data can be gathered for customers using the [Deutsche Bahn](https://www.bahn.de/) [WiFi solution](http://login.wifionice.de/en/wifiinfo/)
+"proof of concept" to show which data can be gathered for customers using the [Deutsche Bahn](https://www.bahn.de/) [WiFi solution](https://inside.bahn.de/wifionice-wlan-ice-login/)
 
 ## components
 
-...
+- [status.html](https://hacker-bastl.github.io/omboard/status.html) show data exposed when using "[WiFi on ICE](http://login.wifionice.de/en/wifiinfo/)"
+
+- [map.html](https://hacker-bastl.github.io/omboard/map.html) visualize train location using [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Browsing#Other_URL_tricks)
 
 ## credits
 
