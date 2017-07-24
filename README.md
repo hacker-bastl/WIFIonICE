@@ -14,4 +14,4 @@
   - "[Chapter 3: Täglich grüßt das Murmeltier](http://hannover.ccc.de/~nexus/dbwifi/chapter3.html)" (2017/07/20)
 - thanks to [Christian](https://twitter.com/resciscosilenda) for sharing that [the XML API is not protected](https://twitter.com/resciscosilenda/status/887191467629981696) (2017/07/18)
 - thanks to [Jan-Tilo](https://twitter.com/jatiki) for sharing [the Referrer "fix"](https://twitter.com/jatiki/status/862360786097893376) (2017/05/10)
-- see also [#WIFIonICE on Twitter](https://twitter.com/search?q=#WIFIonICE)
+- see also [#WIFIonICE on Twitter](https://twitter.com/search?f=tweets&vertical=default&q=%23WIFIonICE)
