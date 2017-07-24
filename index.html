@@ -8,68 +8,105 @@
     <link href="//www.bahn.de/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="//www.bahn.de/common/view/static/v8/img/db_em_rgb_100px.svg" rel="apple-touch-icon" type="image/svg" />
 
-    <title> Testing DB ICE Portal APIs ... </title>
+    <title> (User) Data exposed by WIFIonICE APIs </title>
 
     <!-- https://hannover.ccc.de/~nexus/dbwifi/chapter2.html -->
     <meta name="referrer" content="no-referrer" />
 
+    <!-- TODO: CDN links for Vue.js might not always be available (tunnel :-) use "local" copy instead? -->
     <!-- script src="//unpkg.com/vue" crossorigin="anonymous" type="text/javascript"></script -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"
-      crossorigin="anonymous" type="text/javascript"></script>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js" crossorigin="anonymous" type="text/javascript"></script>
     <script src="omboard-vue.js" type="text/javascript"></script>
     <style type="text/css">
 
       body { background-color: #fff; font-family: sans-serif; }
+      section { width: 30%; float: left; }
 
     </style>
   </head>
   <body>
 
     <section name="user">
-      <ul>
-        <li>user ip: {{ ip }}</li>
-        <li>user mac: {{ mac }}</li>
-        <li>user online: {{ !! online ? 'yes' : 'no' }} / {{ timeused }}</li>
-        <li>user logged in: {{ !! authenticated ? 'yes' : 'no' }}</li>
-        <li>user class: {{ userclass }}</li>
-        <li>user data used: {{ parseFloat( data_download_used / 1024 / 1024 ).toFixed( 2 ) }} / {{ parseFloat( data_download_limit / 1024 / 1024 ) }}</li>
+      <h3>your data</h3>
+      <pre>API status: {{ apiStatus }}</pre>
+      <ul v-if=" apiStatus == 'OK' ">
+        <li>mac address: {{ apiData.mac }}</li>
+        <li>ip address: {{ apiData.ip }}</li>
+        <li>user class: {{ apiData.userclass }}</li>
+        <li>online: {{ !! apiData.online ? 'yes' : 'no' }}</li>
+        <li>authenticated: {{ !! apiData.authenticated ? 'yes' : 'no' }}</li>
+        <li>time used: {{ apiData.timeused }}</li>
+        <li>data used: {{ parseFloat( apiData.data_download_used / 1024 / 1024 ).toFixed( 2 ) }} MB</li>
+        <li>data limit: {{ parseFloat( apiData.data_download_limit / 1024 / 1024 ).toFixed( 2 ) }} MB</li>
       </ul>
     </section>
     <script type="text/javascript">
 
-      const userVue = new omboardVue({
+      window.omboardUser = new omboardVue({
         el: 'section[name=user]',
         data: {
-          url: '/api/xml/user',
-
-          ip: '127.0.0.1',
-          mac: '00:00:00:00:00:00',
-          online: 0,
-          authenticated: 0,
-          userclass: 0,
-          timeused: 0,
-          data_download_used: 0,
-          data_download_limit: 0,
+          apiUrl: '//www.ombord.info/api/xml/user',
+          apiStatus: 'started',
+          apiData : {
+            ip: '127.0.0.1',
+            mac: '00:00:00:00:00:00',
+            online: 0,
+            authenticated: 0,
+            userclass: 0,
+            timeused: 0,
+            data_download_used: 0,
+            data_download_limit: 0,
+          },
         },
       });
 
     </script>
-    <section name="users">
-      <ul>
-        <li>total WiFi users: {{ total }}</li>
-        <li>online WiFi users: {{ online }}</li>
+
+    <section name="position">
+      <h3>train position</h3>
+      <pre>API status: {{ apiStatus }}</pre>
+      <ul v-if=" apiStatus == 'OK' ">
+        <li>longitude: {{ apiData.longitude }}</li>
+        <li>latitude: {{ apiData.latitude }}</li>
+        <li>altitude: {{ apiData.altitude }}</li>
       </ul>
     </section>
     <script type="text/javascript">
 
-      const usersVue = new omboardVue({
+      window.omboardPosition = new omboardVue({
+        el: 'section[name=position]',
+        data: {
+          apiUrl: '//www.ombord.info/api/xml/position',
+          apiStatus: 'started',
+          apiData: {
+            longitude : 0,
+            latitude : 0,
+            altitude: 0,
+          },
+        },
+      });
+
+    </script>
+
+    <section name="users">
+      <h3>user counter</h3>
+      <pre>API status: {{ apiStatus }}</pre>
+      <ul v-if=" apiStatus == 'OK' ">
+        <li>total users: {{ apiData.total }}</li>
+        <li>online users: {{ apiData.online }}</li>
+      </ul>
+    </section>
+    <script type="text/javascript">
+
+      window.omboardUsers = new omboardVue({
         el: 'section[name=users]',
         data: {
-          url: '/api/xml/users',
-
-          total: 0,
-          online: 0,
+          apiUrl: '//www.ombord.info/api/xml/users',
+          apiStatus: 'started',
+          apiData: {
+            total: 0,
+            online: 0,
+          },
         },
       });
 
