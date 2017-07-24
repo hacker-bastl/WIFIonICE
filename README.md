@@ -4,13 +4,17 @@
 
 ## components
 
-- [status.html](https://hacker-bastl.github.io/omboard/status.html) show data exposed when using "[WiFi on ICE](http://login.wifionice.de/en/wifiinfo/)"
+[hacker-bastl.github.io/omboard/status.html](https://hacker-bastl.github.io/omboard/status.html)
+- show data exposed when using "[WiFi on ICE](http://login.wifionice.de/en/wifiinfo/)"
+- using / testing [Vue.js (Mixin)](https://vuejs.org/v2/guide/mixins.html)
 
-- [map.html](https://hacker-bastl.github.io/omboard/map.html) visualize train location using [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Browsing#Other_URL_tricks)
+[hacker-bastl.github.io/omboard/map.html](https://hacker-bastl.github.io/omboard/map.html)
+- load [train position data XML](https://www.ombord.info/api/xml/position)
+- visualize using [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Browsing#Other_URL_tricks)
 
 ## credits
 
-- kudos to [Nexus511](https://twitter.com/Nexus511) and the [Chaos Computer Club](https://twitter.com/chaosupdates/status/886905108419751936) 
+- kudos to [Nexus511](https://twitter.com/Nexus511) and the [Chaos Computer Club](https://twitter.com/chaosupdates/status/886905108419751936)
   - "[Was das neue Bahn-Wifi über seine Nutzer ausplaudert](http://hannover.ccc.de/~nexus/dbwifi/index.html)" (2016/10/12)
   - "[Chapter 2: Die Bahn, ihr Wifi und die Amateure](http://hannover.ccc.de/~nexus/dbwifi/chapter2.html)" (2017/07/17)
   - "[Chapter 3: Täglich grüßt das Murmeltier](http://hannover.ccc.de/~nexus/dbwifi/chapter3.html)" (2017/07/20)
