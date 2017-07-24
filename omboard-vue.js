@@ -1,26 +1,40 @@
 // https://vuejs.org/v2/guide/mixins.html
 const omboardVue = Vue.extend({
   created: function() {
-    this.load();
-    setInterval(this.load.bind(this), 1E4);
+    setInterval(this.getOmboardData.bind(this), 1E4);
+    this.getOmboardData();
   },
   methods: {
-    load: function() {
-      var instance = this;
-
+    getOmboardData: function() {
+      var instance = this; // TODO: smells!
       var request = new XMLHttpRequest();
+
+      // TODO: "deep" recursion for connectivity data?
       request.addEventListener('load', function() {
-        var searchKey = instance.url.split('/').pop().split('.').shift();
-        var responseXML = request.responseXML || new DOMParser()
-          .parseFromString(request.responseText, 'text/xml');
-        var dataNodes = responseXML.querySelector(searchKey).childNodes;
-        // TODO: deep recursion for connectivity data?
+        var searchKey = instance.apiUrl.split('/').pop();
+        var dataNodes = request.responseXML.querySelector(searchKey).childNodes;
         Array.prototype.slice.call(dataNodes).forEach(function(node) {
-          if (node.nodeType == 1) instance[node.nodeName] = node.textContent;
+          if (node.nodeType == 1) instance.apiData[node.nodeName] = node.textContent;
         });
       });
-      request.open('GET', '//www.ombord.info' + instance.url);
-      // request.open('GET', '/omboard/mock' + instance.url.slice(8) + '.xml');
+
+      // https://developer.mozilla.org/docs/Web/API/XMLHttpRequest/readyState
+      request.addEventListener('readystatechange', function() {
+        instance.apiStatus = {
+          0: 'started',
+          1: 'opened',
+          2: 'receiving',
+          3: 'loading',
+          4: request.statusText || 'error',
+        }[request.readyState];
+      });
+
+      // https://developer.mozilla.org/docs/Web/API/XMLHttpRequest/timeout
+      request.addEventListener('timeout', function() {
+        window.alert('connection timeout'); // TODO?
+      });
+      request.open('GET', instance.apiUrl);
+      request.timeout = 3E4;
       request.send(null);
     },
   },
