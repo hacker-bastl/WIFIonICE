@@ -25,7 +25,7 @@
     </style>
   </head>
   <body>
-    
+
     <section name="position">
       <ul>
         <li>position: {{ latitude }} / {{ longitude }}</li>
@@ -33,6 +33,10 @@
         <li>speed: {{ speed }}</li>
         <li>updated: {{ new Date( time * 1E3 ).toJSON() }}</li>
       </ul>
+
+      <!-- http://wiki.openstreetmap.org/wiki/Browsing#Other_URL_tricks -->
+      <iframe src="//www.openstreetmap.org/?mlat={{ latitude }}&mlon={{ longitude }}">
+      </iframe>
     </section>
     <script type="text/javascript">
 
@@ -67,8 +71,8 @@
         data: {
           url: '/api/xml/user',
 
-          ip: 'loading...',
-          mac: 'loading...',
+          ip: '127.0.0.1',
+          mac: '00:00:00:00:00:00',
           online: 0,
           authenticated: 0,
           userclass: 0,
