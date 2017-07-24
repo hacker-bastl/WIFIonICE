@@ -26,36 +26,6 @@
   </head>
   <body>
 
-    <section name="position">
-      <ul>
-        <li>position: {{ latitude }} / {{ longitude }}</li>
-        <li>altitude: {{ altitude }}</li>
-        <li>speed: {{ speed }}</li>
-        <li>updated: {{ new Date( time * 1E3 ).toJSON() }}</li>
-      </ul>
-
-      <!-- http://wiki.openstreetmap.org/wiki/Browsing#Other_URL_tricks -->
-      <iframe v-bind:src="'//www.openlinkmap.org/small.php?zoom=10&lat='+latitude+'&lon='+longitude"
-        frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-      </iframe>
-
-    </section>
-    <script type="text/javascript">
-
-      const positionVue = new omboardVue({
-        el: 'section[name=position]',
-        data: {
-          url: '/api/xml/position',
-
-          altitude: 'loading...',
-          latitude: 'loading...',
-          longitude: 'loading...',
-          speed: 'loading...',
-          time: 'loading...',
-        },
-      });
-
-    </script>
     <section name="user">
       <ul>
         <li>user ip: {{ ip }}</li>
