@@ -19,8 +19,8 @@ const omboardVue = Vue.extend({
           if (node.nodeType == 1) instance[node.nodeName] = node.textContent;
         });
       });
-      // request.open('GET', '//www.ombord.info' + instance.url);
-      request.open('GET', '/omboard/mock' + instance.url.slice(8) + '.xml');
+      request.open('GET', '//www.ombord.info' + instance.url);
+      // request.open('GET', '/omboard/mock' + instance.url.slice(8) + '.xml');
       request.send(null);
     },
   },
