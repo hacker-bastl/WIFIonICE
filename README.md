@@ -1,10 +1,10 @@
 ## about
 
-"proof of concept" to [show which data can be gathered](https://hacker-bastl.github.io/omboard/status.html) while using "[WiFi on ICE](https://inside.bahn.de/wifionice-wlan-ice-login/)"
+"proof of concept" to [show which data can be gathered](https://hacker-bastl.github.io/omboard/index.html) while using "[WiFi on ICE](https://inside.bahn.de/wifionice-wlan-ice-login/)"
 
 ## components
 
-[hacker-bastl.github.io/omboard/status.html](https://hacker-bastl.github.io/omboard/status.html)
+[hacker-bastl.github.io/omboard/index.html](https://hacker-bastl.github.io/omboard/index.html)
 - load [user data XML](https://www.ombord.info/api/xml/user) and [users count XML](https://www.ombord.info/api/xml/users)
 - show data using / testing [Vue.js (Mixin)](https://vuejs.org/v2/guide/mixins.html)
 
