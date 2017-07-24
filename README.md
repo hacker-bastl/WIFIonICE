@@ -10,7 +10,7 @@
 
 [hacker-bastl.github.io/omboard/map.html](https://hacker-bastl.github.io/omboard/map.html)
 - load [train position data XML](https://www.ombord.info/api/xml/position)
-- visualize using [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Browsing#Other_URL_tricks)
+- visualize using [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Browsing#bbox_URLs)
 
 ## credits
 

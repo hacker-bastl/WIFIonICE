@@ -19,6 +19,7 @@
       request.addEventListener( 'load', function() {
         var longitude = request.responseXML.querySelector( 'longitude' ).textContent;
         var latitude = request.responseXML.querySelector( 'latitude' ).textContent;
+        // http://wiki.openstreetmap.org/wiki/Browsing#bbox_URLs
         var iframeURL  = '//www.openstreetmap.org/export/embed.html?bbox=' +
           encodeURIComponent( longitude + ',' + latitude + ',' + longitude + ',' + latitude ):
         document.querySelector( 'iframe' ).setAttribute( 'src', iframeURL ); } );
