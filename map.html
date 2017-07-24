@@ -14,22 +14,26 @@
     <meta name="referrer" content="no-referrer" />
     <script type="text/javascript">
 
-    const showICElocation = function() {
+    const showICElocation = function( longitude, latitude ) {
+      if( ! isNaN( longitude ) && ! isNaN( latitude ) ) {
+        // http://wiki.openstreetmap.org/wiki/Browsing#bbox_URLs
+        var iframeURL  = '//www.openstreetmap.org/export/embed.html?bbox=' +
+          encodeURIComponent( longitude + ',' + latitude + ',' + longitude + ',' + latitude );
+        return document.querySelector( 'iframe' ).setAttribute( 'src', iframeURL ); }
+      // https://developer.mozilla.org/docs/Web/API/XMLHttpRequest
       var request = new XMLHttpRequest();
       request.addEventListener( 'load', function() {
         var longitude = request.responseXML.querySelector( 'longitude' ).textContent;
         var latitude = request.responseXML.querySelector( 'latitude' ).textContent;
-        // http://wiki.openstreetmap.org/wiki/Browsing#bbox_URLs
-        var iframeURL  = '//www.openstreetmap.org/export/embed.html?bbox=' +
-          encodeURIComponent( longitude + ',' + latitude + ',' + longitude + ',' + latitude );
-        document.querySelector( 'iframe' ).setAttribute( 'src', iframeURL ); } );
+        showICElocation( longitude, latitude ); } );
       request.addEventListener( 'timeout', function() {
-        alert( 'cannot access ICE WiFi (' + ( request.statusText || 'connection failed' ) + ')' ); } );
+        window.alert( request.statusText || 'connection timeout' ); } );
       request.open( 'GET', '//www.ombord.info/api/xml/position' );
+      request.timeout = 2E4;
       request.send( null ); };
 
     window.addEventListener( 'load', showICElocation );
-    window.setInterval( showICElocation, 1E4 );
+    window.setInterval( showICElocation, 2E4 );
 
     </script>
     <style type="text/css">
