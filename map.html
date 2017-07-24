@@ -21,7 +21,7 @@
         var latitude = request.responseXML.querySelector( 'latitude' ).textContent;
         // http://wiki.openstreetmap.org/wiki/Browsing#bbox_URLs
         var iframeURL  = '//www.openstreetmap.org/export/embed.html?bbox=' +
-          encodeURIComponent( longitude + ',' + latitude + ',' + longitude + ',' + latitude ):
+          encodeURIComponent( longitude + ',' + latitude + ',' + longitude + ',' + latitude );
         document.querySelector( 'iframe' ).setAttribute( 'src', iframeURL ); } );
       request.addEventListener( 'timeout', function() {
         alert( 'cannot access ICE WiFi (' + ( request.statusText || 'connection failed' ) + ')' ); } );
