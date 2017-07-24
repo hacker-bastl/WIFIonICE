@@ -19,8 +19,9 @@
       request.addEventListener( 'load', function() {
         var longitude = request.responseXML.querySelector( 'longitude' ).textContent;
         var latitude = request.responseXML.querySelector( 'latitude' ).textContent;
-        document.querySelector( 'iframe' ).setAttribute( 'src', '//www.openstreetmap.org/export/embed.html?' +
-          'bbox=' + encodeURIComponent( longitude + ',' + latitude + ',' + longitude + ',' + latitude ) ); } );
+        var iframeURL  = '//www.openstreetmap.org/export/embed.html?bbox=' +
+          encodeURIComponent( longitude + ',' + latitude + ',' + longitude + ',' + latitude ):
+        document.querySelector( 'iframe' ).setAttribute( 'src', iframeURL ); } );
       request.addEventListener( 'error', function() {
         alert( 'cannot access ICE WiFi (' + ( request.statusText || 'connection failed' ) + ')' ); } );
       request.open( 'GET', '//www.ombord.info/api/xml/position' );
