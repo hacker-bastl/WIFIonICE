@@ -17,10 +17,10 @@
     const showICElocation = function() {
       var request = new XMLHttpRequest();
       request.addEventListener( 'load', function() {
-        document.querySelector( 'iframe' ).setAttribute( 'src', '//www.openlinkmap.org/small.php' +
-          '?lat=' + request.responseXML.querySelector( 'latitude' ).textContent +
-          '&lon=' + request.responseXML.querySelector( 'longitude' ).textContent  +
-          '&zoom=' + 10 ); } );
+        var longitude = request.responseXML.querySelector( 'longitude' ).textContent;
+        var latitude = request.responseXML.querySelector( 'latitude' ).textContent;
+        document.querySelector( 'iframe' ).setAttribute( 'src', '//www.openstreetmap.org/export/embed.html?' +
+          'bbox=' + encodeURIComponent( longitude + ',' + latitude + ',' + longitude + ',' + latitude ) ); } );
       request.addEventListener( 'error', function() {
         alert( 'cannot access ICE WiFi (' + ( request.statusText || 'connection failed' ) + ')' ); } );
       request.open( 'GET', '//www.ombord.info/api/xml/position' );
