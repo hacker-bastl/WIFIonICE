@@ -1,6 +1,6 @@
 ## about
 
-"proof of concept" to show which data can be gathered for customers using the [Deutsche Bahn WiFi solution](https://inside.bahn.de/wifionice-wlan-ice-login/)
+"proof of concept" to [show which data can be gathered](https://hacker-bastl.github.io/omboard/status.html) while using "[WiFi on ICE](https://inside.bahn.de/wifionice-wlan-ice-login/)"
 
 ## components
 
