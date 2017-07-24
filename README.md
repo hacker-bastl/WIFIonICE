@@ -5,8 +5,8 @@
 ## components
 
 [hacker-bastl.github.io/omboard/status.html](https://hacker-bastl.github.io/omboard/status.html)
-- show data exposed when using "[WiFi on ICE](http://login.wifionice.de/en/wifiinfo/)"
-- using / testing [Vue.js (Mixin)](https://vuejs.org/v2/guide/mixins.html)
+- load [user data XML](https://www.ombord.info/api/xml/user) and [users count XML](https://www.ombord.info/api/xml/users)
+- show data using / testing [Vue.js (Mixin)](https://vuejs.org/v2/guide/mixins.html)
 
 [hacker-bastl.github.io/omboard/map.html](https://hacker-bastl.github.io/omboard/map.html)
 - load [train position data XML](https://www.ombord.info/api/xml/position)
