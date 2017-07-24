@@ -2,15 +2,9 @@
 
 "proof of concept" to [show which data can be gathered](https://hacker-bastl.github.io/omboard/index.html) while using "[WiFi on ICE](https://inside.bahn.de/wifionice-wlan-ice-login/)"
 
-## components
+- [omboard/index.html](https://hacker-bastl.github.io/omboard/index.html) load [user data XML](https://www.ombord.info/api/xml/user) and [users count XML](https://www.ombord.info/api/xml/users) and show data using / testing [Vue.js (Mixin)](https://vuejs.org/v2/guide/mixins.html)
 
-[hacker-bastl.github.io/omboard/index.html](https://hacker-bastl.github.io/omboard/index.html)
-- load [user data XML](https://www.ombord.info/api/xml/user) and [users count XML](https://www.ombord.info/api/xml/users)
-- show data using / testing [Vue.js (Mixin)](https://vuejs.org/v2/guide/mixins.html)
-
-[hacker-bastl.github.io/omboard/map.html](https://hacker-bastl.github.io/omboard/map.html)
-- load [train position data XML](https://www.ombord.info/api/xml/position)
-- visualize using [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Browsing#bbox_URLs)
+- [omboard/map.html](https://hacker-bastl.github.io/omboard/map.html) load [train position data XML](https://www.ombord.info/api/xml/position) and visualize using [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Browsing#bbox_URLs)
 
 ## credits
 
