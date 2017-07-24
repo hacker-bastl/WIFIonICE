@@ -23,7 +23,7 @@
         var iframeURL  = '//www.openstreetmap.org/export/embed.html?bbox=' +
           encodeURIComponent( longitude + ',' + latitude + ',' + longitude + ',' + latitude ):
         document.querySelector( 'iframe' ).setAttribute( 'src', iframeURL ); } );
-      request.addEventListener( 'error', function() {
+      request.addEventListener( 'timeout', function() {
         alert( 'cannot access ICE WiFi (' + ( request.statusText || 'connection failed' ) + ')' ); } );
       request.open( 'GET', '//www.ombord.info/api/xml/position' );
       request.send( null ); };
