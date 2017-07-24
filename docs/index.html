@@ -35,7 +35,8 @@
       </ul>
 
       <!-- http://wiki.openstreetmap.org/wiki/Browsing#Other_URL_tricks -->
-      <iframe v-bind:src="//www.openstreetmap.org/?mlat={{ latitude }}&mlon={{ longitude }}">
+      <iframe v-bind:src="//www.openlinkmap.org/embed.php?lat={{ latitude }}&lon={{ longitude }}"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
       </iframe>
 
     </section>
