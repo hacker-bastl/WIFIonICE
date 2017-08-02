@@ -1,7 +1,9 @@
 "proof of concept" to show [which data is exposed](http://hannover.ccc.de/~nexus/dbwifi/index.html) while using "[WiFi on ICE](https://inside.bahn.de/wifionice-wlan-ice-login/)"
 
-- [omboard/index.html](https://hacker-bastl.github.io/omboard/index.html) load [user data XML](https://www.ombord.info/api/xml/user) and [users count XML](https://www.ombord.info/api/xml/users) and show data using [Vue.js (Mixin)](https://vuejs.org/v2/guide/mixins.html)
-- [omboard/map.html](https://hacker-bastl.github.io/omboard/map.html) load [train position data XML](https://www.ombord.info/api/xml/position) and visualize using [OpenStreetMap](http://wiki.openstreetmap.org/wiki/Browsing#bbox_URLs)
+- seems to me the ombord [jsonp](https://www.ombord.info/api/jsonp/position/?callback=console.log) and [xml](https://www.ombord.info/api/xml/position/) apis are now offline (August 2017)
+
+- but some [imice.de](https://portal.imice.de/api1/rs/status) and [maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) remain available? checking...
+
 
 - kudos to [Falk](https://twitter.com/Nexus511) and the [Chaos Computer Club](https://twitter.com/chaosupdates/status/886905108419751936)
   - "[Was das neue Bahn-Wifi über seine Nutzer ausplaudert](http://hannover.ccc.de/~nexus/dbwifi/index.html)" (2016/10/12)
