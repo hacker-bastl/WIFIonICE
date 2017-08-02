@@ -1,8 +1,11 @@
 "proof of concept" to show [which data is exposed](http://hannover.ccc.de/~nexus/dbwifi/index.html) while using "[WiFi on ICE](https://inside.bahn.de/wifionice-wlan-ice-login/)"
 
 - seems to me the ombord [jsonp](https://www.ombord.info/api/jsonp/position/?callback=console.log) and [xml](https://www.ombord.info/api/xml/position/) apis are now offline? (August 2017)
+- but some "[imice.de](https://hacker-bastl.github.io/omboard/portal.imice.de.html)" [api](https://portal.imice.de/api1/rs/status) and "[maxdome-onboard.de](https://hacker-bastl.github.io/omboard/maxdome-onboard.de.html)" [api](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) remain available? checking...
+- LOL can't check because train WiFi broken... [Amateure](http://hannover.ccc.de/~nexus/dbwifi/chapter2.html)...
 
-- but some [imice.de](https://portal.imice.de/api1/rs/status) and [maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) remain available? checking...
+https://hacker-bastl.github.io/omboard/maxdome-onboard.de.html
+https://hacker-bastl.github.io/omboard/portal.imice.de.html
 
 - kudos to [Falk](https://twitter.com/Nexus511) and the [Chaos Computer Club](https://twitter.com/chaosupdates/status/886905108419751936)
   - "[Was das neue Bahn-Wifi über seine Nutzer ausplaudert](http://hannover.ccc.de/~nexus/dbwifi/index.html)" (2016/10/12)
