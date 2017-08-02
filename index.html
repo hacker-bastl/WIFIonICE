@@ -20,7 +20,7 @@
     <style type="text/css">
 
       body { background-color: #fff; font-family: sans-serif; }
-      section { width: 30%; float: left; }
+      section { width: 30%; height: 100%; float: left; }
 
     </style>
   </head>
@@ -28,13 +28,13 @@
 
     <section name="user">
       <h3>your data</h3>
-      <pre>API status: {{ apiStatus }}</pre>
-      <ul v-if=" apiStatus == 'OK' ">
+      <pre v-if=" apiStatus != 'OK' ">{{ apiStatus }}</pre>
+      <ul else>
         <li>mac address: {{ apiData.mac }}</li>
         <li>ip address: {{ apiData.ip }}</li>
         <li>user class: {{ apiData.userclass }}</li>
-        <li>online: {{ !! apiData.online ? 'yes' : 'no' }}</li>
         <li>authenticated: {{ !! apiData.authenticated ? 'yes' : 'no' }}</li>
+        <li>online: {{ !! apiData.online ? 'yes' : 'no' }}</li>
         <li>time used: {{ apiData.timeused }}</li>
         <li>data used: {{ parseFloat( apiData.data_download_used / 1024 / 1024 ).toFixed( 2 ) }} MB</li>
         <li>data limit: {{ parseFloat( apiData.data_download_limit / 1024 / 1024 ).toFixed( 2 ) }} MB</li>
@@ -45,7 +45,7 @@
       window.omboardUser = new omboardVue({
         el: 'section[name=user]',
         data: {
-          apiUrl: '//www.ombord.info/api/xml/user',
+          apiPath: 'user',
           apiStatus: 'started',
           apiData : {
             ip: '127.0.0.1',
@@ -64,8 +64,8 @@
 
     <section name="position">
       <h3>train position</h3>
-      <pre>API status: {{ apiStatus }}</pre>
-      <ul v-if=" apiStatus == 'OK' ">
+      <pre v-if=" apiStatus != 'OK' ">{{ apiStatus }}</pre>
+      <ul else>
         <li>longitude: {{ apiData.longitude }}</li>
         <li>latitude: {{ apiData.latitude }}</li>
         <li>altitude: {{ apiData.altitude }}</li>
@@ -76,7 +76,7 @@
       window.omboardPosition = new omboardVue({
         el: 'section[name=position]',
         data: {
-          apiUrl: '//www.ombord.info/api/xml/position',
+          apiPath: 'position',
           apiStatus: 'started',
           apiData: {
             longitude : 0,
@@ -90,8 +90,8 @@
 
     <section name="users">
       <h3>user counter</h3>
-      <pre>API status: {{ apiStatus }}</pre>
-      <ul v-if=" apiStatus == 'OK' ">
+      <pre v-if=" apiStatus != 'OK' ">{{ apiStatus }}</pre>
+      <ul else>
         <li>total users: {{ apiData.total }}</li>
         <li>online users: {{ apiData.online }}</li>
       </ul>
@@ -101,7 +101,7 @@
       window.omboardUsers = new omboardVue({
         el: 'section[name=users]',
         data: {
-          apiUrl: '//www.ombord.info/api/xml/users',
+          apiPath: 'users',
           apiStatus: 'started',
           apiData: {
             total: 0,

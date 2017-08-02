@@ -11,8 +11,7 @@ const omboardVue = Vue.extend({
 
       // TODO: "deep" recursion for connectivity data?
       request.addEventListener('load', function() {
-        var searchKey = instance.apiUrl.split('/').pop();
-        var dataNodes = request.responseXML.querySelector(searchKey).childNodes;
+        var dataNodes = request.responseXML.querySelector(instance.apiPath).childNodes;
         Array.prototype.slice.call(dataNodes).forEach(function(node) {
           if (node.nodeType == 1) instance.apiData[node.nodeName] = node.textContent;
         });
@@ -33,7 +32,7 @@ const omboardVue = Vue.extend({
       request.addEventListener('timeout', function() {
         window.alert('connection timeout'); // TODO?
       });
-      request.open('GET', instance.apiUrl);
+      request.open('GET', '//www.ombord.info/api/xml/' + instance.apiPath);
       request.timeout = 3E4;
       request.send(null);
     },
