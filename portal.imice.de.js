@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
     var response = JSON.parse(request.responseText);
     var output = document.createElement('pre');
     document.body.appendChild(output);
-    output.textContent = JSON.stringify(output, null, 4);
+    output.textContent = JSON.stringify(response, null, 4);
   });
   request.open('GET', '//portal.imice.de/api1/rs/status');
   request.send(null);
