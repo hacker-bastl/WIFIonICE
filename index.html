@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="//www.bahn.de/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="//www.bahn.de/common/view/static/v8/img/db_em_rgb_100px.svg" rel="apple-touch-icon" type="image/svg" />
+
+    <title> (User) Data exposed when using #WIFIonICE </title>
+
+    <!-- https://hannover.ccc.de/~nexus/dbwifi/chapter2.html -->
+    <meta name="referrer" content="no-referrer" />
+    <script type="text/javascript">
+
+    window.addEventListener('load', function() {
+      var request = new XMLHttpRequest();
+      request.addEventListener('load', function() {
+        var response = JSON.parse(request.responseText);
+        console.log(response);
+
+        var output = document.createElement('pre');
+        document.body.appendChild(output);
+        output.textContent = JSON.stringify(response, null, 4);
+      });
+      request.open('GET', '//skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata');
+      request.send(null);
+    });
+
+    </script>
+  </head>
+  <body>
+
+
+  </body>
+</html>
