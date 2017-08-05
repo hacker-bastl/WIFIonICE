@@ -15,19 +15,25 @@
 
     window.addEventListener('load', function() {
       var request = new XMLHttpRequest();
+
       request.addEventListener('load', function() {
         console.log(JSON.parse(request.responseText));
       });
+
       request.addEventListener('load', function() {
         document.querySelector('pre').textContent = JSON.stringify(JSON.parse(request.responseText), null, 4);
       });
+
       request.addEventListener('timeout', function() {
         document.querySelector('pre').textContent = request.statusText || 'connection timeout';
       });
+
       request.addEventListener('error', function() {
         document.querySelector('pre').textContent = request.statusText || 'connection error';
       });
+
       request.open('GET', '//skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata');
+      request.timeout = 1E4;
       request.send(null);
     });
 
