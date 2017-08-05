@@ -10,7 +10,6 @@
 
     <title> (User) Data exposed when using #WIFIonICE </title>
 
-    <!-- https://hannover.ccc.de/~nexus/dbwifi/chapter2.html -->
     <meta name="referrer" content="no-referrer" />
     <script type="text/javascript">
 
@@ -19,10 +18,13 @@
       request.addEventListener('load', function() {
         var response = JSON.parse(request.responseText);
         console.log(response);
-
-        var output = document.createElement('pre');
-        document.body.appendChild(output);
-        output.textContent = JSON.stringify(response, null, 4);
+        document.querySelector('pre').textContent = JSON.stringify(response, null, 4);
+      });
+      request.addEventListener('timeout', function() {
+        alert(request.statusText || 'connection timeout');
+      });
+      request.addEventListener('error', function() {
+        alert(request.statusText || 'connection error');
       });
       request.open('GET', '//skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata');
       request.send(null);
@@ -31,7 +33,6 @@
     </script>
   </head>
   <body>
-
-
+    <pre>loading...</pre>
   </body>
 </html>
