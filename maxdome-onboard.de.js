@@ -4,7 +4,7 @@ window.addEventListener('load', function() {
     var response = JSON.parse(request.responseText);
     var output = document.createElement('pre');
     document.body.appendChild(output);
-    output.textContent = JSON.stringiy(output, null, 4);
+    output.textContent = JSON.stringify(output, null, 4);
   });
   request.open('GET', '//skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata');
   request.send(null);
