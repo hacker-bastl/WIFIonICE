@@ -4,10 +4,10 @@
 
 ## status
 
-- :warning: [maxdome-onboard.de JSON API](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) still unprotected :open_mouth:
-- :white_check_mark: [imice.de JSON API](http://portal.imice.de/api1/rs/status) protected by ```Access-Control-Allow-Origin``` (?)
-- :white_check_mark: [ombord.info JSONP API](https://www.ombord.info/api/jsonp/position/?callback=console.log) deactivated (?)
-- :white_check_mark: [ombord.info XML API](https://www.ombord.info/api/xml/position/) deactivated (?)
+- :white_check_mark: [maxdome-onboard.de JSON API](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) still unprotected :open_mouth:
+- :no_entry_sign: [imice.de JSON API](http://portal.imice.de/api1/rs/status) protected by ```Access-Control-Allow-Origin``` (?)
+- :no_entry: [ombord.info JSONP API](https://www.ombord.info/api/jsonp/position/?callback=console.log) deactivated (?)
+- :no_entry: [ombord.info XML API](https://www.ombord.info/api/xml/position/) deactivated (?)
 
 ## references
 
