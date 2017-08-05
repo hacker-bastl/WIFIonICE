@@ -1,4 +1,18 @@
+## about
+
 "proof of concept" to show [which data is exposed](https://hacker-bastl.github.io/omboard/) while using "[WiFi on ICE](https://inside.bahn.de/wifionice-wlan-ice-login/)" ...
+
+## status
+
+:red_circle: [maxdome-onboard.de JSON API](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) still unprotected :open_mouth:
+
+:white_check_mark: [imice.de JSON API](http://portal.imice.de/api1/rs/status) protected by ```Access-Control-Allow-Origin``` (?)
+
+:white_check_mark: [ombord.info JSONP API](https://www.ombord.info/api/jsonp/position/?callback=console.log) deactivated (?)
+
+:white_check_mark: [ombord.info XML API](https://www.ombord.info/api/xml/position/) deactivated (?)
+
+## references
 
 - kudos to [Falk](https://twitter.com/Nexus511) and the [Chaos Computer Club](https://twitter.com/chaosupdates/status/886905108419751936)
   - "[Was das neue Bahn-Wifi über seine Nutzer ausplaudert](http://hannover.ccc.de/~nexus/dbwifi/index.html)" (2016/10/12)
