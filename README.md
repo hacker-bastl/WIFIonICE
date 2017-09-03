@@ -1,29 +1,42 @@
-## demo
-
-- please [open this page](https://hacker-bastl.github.io/omboard/) while using "[WiFi on ICE](https://inside.bahn.de/wifionice-wlan-ice-login/)" ...
-
-## status
-
-- :white_check_mark: [maxdome-onboard.de JSON API](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) still unprotected :open_mouth:
-- :no_entry_sign: [imice.de JSON API](http://portal.imice.de/api1/rs/status) protected by ```Access-Control-Allow-Origin``` (?)
-- :no_entry: [ombord.info JSONP API](https://www.ombord.info/api/jsonp/position/?callback=console.log) deactivated (?)
-- :no_entry: [ombord.info XML API](https://www.ombord.info/api/xml/position/) deactivated (?)
-
-## history
-
-- 2016/10/12 [Falk](https://twitter.com/Nexus511) schreibt "[Was das neue Bahn-Wifi über seine Nutzer ausplaudert](http://hannover.ccc.de/~nexus/dbwifi/index.html)"
-- 2017/05/10 [Jan-Tilo](https://twitter.com/jatiki) twittert [über den angeblichen "fix" via Referrer](https://twitter.com/jatiki/status/862360786097893376)
-- 2017/07/17 [Falk](https://twitter.com/Nexus511) schreibt "[Chapter 2: Die Bahn, ihr Wifi und die Amateure](http://hannover.ccc.de/~nexus/dbwifi/chapter2.html)"
-- 2017/07/18 [Christian](https://twitter.com/resciscosilenda) twittert [daß die XML API noch ungeschützt ist](https://twitter.com/resciscosilenda/status/887191467629981696)
-- 2017/07/20 [Falk](https://twitter.com/Nexus511) schreibt "[Chapter 3: Täglich grüßt das Murmeltier](http://hannover.ccc.de/~nexus/dbwifi/chapter3.html)"
-
-## "datenschutz"
+Wenn ein Kunde [das WLAN im ICE](https://inside.bahn.de/wifionice-wlan-ice-login/) nutzt, werden verschiedene [personenbeziehbaren Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten) (z.B. MAC-Adresse, Aufenthaltsort des Zuges, Wagenklasse, etc.) &uuml;ber [Schnittstellen](https://de.wikipedia.org/wiki/Programmierschnittstelle) (APIs) zug&auml;nglich gemacht.
+Da diese Schnittstellen nicht bzw. nur mangelhaft abgesichert wurden, k&ouml;nnen beliebige (auch nicht daf&uuml;r authorisierte) Webseiten diese Daten auslesen.
 
 > Unsere Kunden, Mitarbeiter und Geschäftspartner legen zu Recht Wert auf die sparsame Erhebung und den sorgsamen Umgang mit ihren Daten. Deshalb haben wir es uns zur Aufgabe gemacht, eine besondere Verantwortung für diese Daten zu tragen.
 
-- von / siehe [Datenschutz im DB-Konzern](http://www.deutschebahn.com/de/konzern/datenschutz/vorstellung_datenschutz.html)
+- von / siehe "[Datenschutz im DB-Konzern](http://www.deutschebahn.com/de/konzern/datenschutz/vorstellung_datenschutz.html)"
 
-## links
+Im Herbst 2016 wird die Deutsche Bahn &uuml;ber diese Sicherheitsl&uuml;cke informiert. [1]
+Es folgen entsprechende Berichte in den Medien. [2]
+Die Bahn versucht die Sicherheitslücke zu schlie&szlig;en. [3]
 
-- "[Bahnverspätungen sind nicht Pech, sondern Gier!](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)"
-- see also [#WIFIonICE on Twitter](https://twitter.com/search?f=tweets&vertical=default&q=%23WIFIonICE) ...
+- [1] 2016/10/12 "[Was das neue Bahn-Wifi über seine Nutzer ausplaudert](http://hannover.ccc.de/~nexus/dbwifi/index.html)" ([Falk](https://twitter.com/Nexus511))
+- [2] 2016/10/13 "[Neues WLAN im ICE nimmt Privatsphäre nicht so ernst](https://www.heise.de/security/meldung/Neues-WLAN-im-ICE-nimmt-Privatsphaere-nicht-so-ernst-3348317.html)" ([Heise](https://www.heise.de/security/news/))
+- [3] 2016/10/13 "[Gratis-WLAN im ICE: Bahn behebt Sicherheitslücken überraschend schnell](http://t3n.de/news/kostenloses-wlan-ice-deutsche-bahn-fehler-755097/)" ([t3n](http://t3n.de/news/))
+
+Im Sommer 2016 stellt sich heraus, da&szlig; die Sicherheitsl&uuml;cke immer noch besteht, bzw. nur unzul&auml;nglich behoben wurde. *)
+Der Zugriffs-Schutz ist mangelhaft [4] und die Daten sind ebenso &uuml;ber eine alternative Schittstelle verf&uuml;gbar. [5]
+Die Bahn wird erneut und deutlich informiert. [6] [7]
+
+- [4] 2017/05/10 [der angebliche "Fix" via Referrer](https://twitter.com/jatiki/status/862360786097893376) ([Jan-Tilo](https://twitter.com/jatiki))
+- [5] 2017/07/18 [die ungeschützte XML API](https://twitter.com/resciscosilenda/status/887191467629981696) ([Christian](https://twitter.com/resciscosilenda))
+- [6] 2017/07/17 "[Chapter 2: Die Bahn, ihr Wifi und die Amateure](http://hannover.ccc.de/~nexus/dbwifi/chapter2.html)" ([Falk](https://twitter.com/Nexus511))
+- [7] 2017/07/20 "[Chapter 3: Täglich grüßt das Murmeltier](http://hannover.ccc.de/~nexus/dbwifi/chapter3.html)" ([Falk](https://twitter.com/Nexus511))
+
+Diesbez&uuml;gliche Medienberichte kommentiert die Bahn wie folgt: [8]
+
+> Man arbeite zusammen mit dem Dienstleister Icomera "mit Hochdruck daran, die Lücke schnellstmöglich zu schließen". Darüber hinaus werde das gesamte System weiterhin auf mögliche Schwachstellen hin untersucht
+
+- [8] 2017/07/17 "[WIFIonICE: CCC warnt vor anhaltendem Sicherheitsproblem beim Bahn-WLAN](https://www.heise.de/newsticker/meldung/WIFIonICE-CCC-warnt-vor-anhaltendem-Sicherheitsproblem-beim-Bahn-WLAN-3773839.html)" ([Heise](https://www.heise.de/security/news/))
+
+Daraufhin werden die beiden urspr&uuml;nglich beschriebenen Schnittstellen scheinbar komplett deaktiviert. [8] [9]
+Eine dritte Schnittstelle, &uuml;ber welche die erw&auml;hnten Daten verf&uuml;gbar waren, wird [abgesichert](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Response_headers). [10]
+Ein Teil der beschriebenen Daten ist allerdings immer noch &uuml;ber eine vierte Schnittstelle im [Unterhaltungs-Bereich](https://inside.bahn.de/maxdome-onboard-ice/) des ICE-Portals verf&uuml;gbar. [11]
+
+- [8] [JSONP API ombord.info](https://www.ombord.info/api/jsonp/position/?callback=console.log) deaktiviert
+- [9] [XML API ombord.info](https://www.ombord.info/api/xml/position/) deaktiviert
+- [10] [JSONP API imice.de](http://portal.imice.de/api1/rs/status) gesch&uuml;tzt
+- [11] [JSON API maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) :open_mouth:
+
+Der Code [in diesem Repository](https://github.com/hacker-bastl/omboard) dient [der Demonstration](https://hacker-bastl.github.io/omboard/) ("Proof of Concept") ebendieser Sicherheitsl&uuml;cke
+
+(die geringe technische Komplexit&auml; steht dabei in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das l&auml;sst bef&uuml;rchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelm&auml;igen Versp&auml;tungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)"...)
