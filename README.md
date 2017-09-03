@@ -17,6 +17,12 @@
 - 2017/07/18 [Christian](https://twitter.com/resciscosilenda) twittert [daß die XML API noch ungeschützt ist](https://twitter.com/resciscosilenda/status/887191467629981696)
 - 2017/07/20 [Falk](https://twitter.com/Nexus511) schreibt "[Chapter 3: Täglich grüßt das Murmeltier](http://hannover.ccc.de/~nexus/dbwifi/chapter3.html)"
 
+## "datenschutz"
+
+> Unsere Kunden, Mitarbeiter und Geschäftspartner legen zu Recht Wert auf die sparsame Erhebung und den sorgsamen Umgang mit ihren Daten. Deshalb haben wir es uns zur Aufgabe gemacht, eine besondere Verantwortung für diese Daten zu tragen.
+
+- von / siehe [Datenschutz im DB-Konzern](http://www.deutschebahn.com/de/konzern/datenschutz/vorstellung_datenschutz.html)
+
 ## links
 
 - "[Bahnverspätungen sind nicht Pech, sondern Gier!](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)"
