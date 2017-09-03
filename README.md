@@ -1,9 +1,9 @@
+### Problematik
+
 Wenn ein Kunde [das WLAN im ICE](https://inside.bahn.de/wifionice-wlan-ice-login/) nutzt, werden verschiedene [personenbeziehbaren Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten) (z.B. MAC-Adresse, Aufenthaltsort des Zuges, Wagenklasse, etc.) &uuml;ber [Schnittstellen](https://de.wikipedia.org/wiki/Programmierschnittstelle) (APIs) zug&auml;nglich gemacht.
 Da diese Schnittstellen nicht bzw. nur mangelhaft abgesichert wurden, k&ouml;nnen beliebige (auch nicht daf&uuml;r authorisierte) Webseiten diese Daten auslesen.
 
-> Unsere Kunden, Mitarbeiter und Geschäftspartner legen zu Recht Wert auf die sparsame Erhebung und den sorgsamen Umgang mit ihren Daten. Deshalb haben wir es uns zur Aufgabe gemacht, eine besondere Verantwortung für diese Daten zu tragen.
-
-- von / siehe "[Datenschutz im DB-Konzern](http://www.deutschebahn.com/de/konzern/datenschutz/vorstellung_datenschutz.html)"
+### Zeitlicher Ablauf
 
 Im Herbst 2016 wird die Deutsche Bahn &uuml;ber diese Sicherheitsl&uuml;cke informiert. [1]
 Es folgen entsprechende Berichte in den Medien. [2]
@@ -13,7 +13,7 @@ Die Bahn versucht die Sicherheitslücke zu schlie&szlig;en. [3]
 - [2] 2016/10/13 "[Neues WLAN im ICE nimmt Privatsphäre nicht so ernst](https://www.heise.de/security/meldung/Neues-WLAN-im-ICE-nimmt-Privatsphaere-nicht-so-ernst-3348317.html)" ([Heise](https://www.heise.de/security/news/))
 - [3] 2016/10/13 "[Gratis-WLAN im ICE: Bahn behebt Sicherheitslücken überraschend schnell](http://t3n.de/news/kostenloses-wlan-ice-deutsche-bahn-fehler-755097/)" ([t3n](http://t3n.de/news/))
 
-Im Sommer 2016 stellt sich heraus, da&szlig; die Sicherheitsl&uuml;cke immer noch besteht, bzw. nur unzul&auml;nglich behoben wurde. *)
+Im Sommer 2016 stellt sich heraus, da&szlig; die Sicherheitsl&uuml;cke immer noch besteht, bzw. nur unzul&auml;nglich behoben wurde.
 Der Zugriffs-Schutz ist mangelhaft [4] und die Daten sind ebenso &uuml;ber eine alternative Schittstelle verf&uuml;gbar. [5]
 Die Bahn wird erneut und deutlich informiert. [6] [7]
 
@@ -28,15 +28,25 @@ Diesbez&uuml;gliche Medienberichte kommentiert die Bahn wie folgt: [8]
 
 - [8] 2017/07/17 "[WIFIonICE: CCC warnt vor anhaltendem Sicherheitsproblem beim Bahn-WLAN](https://www.heise.de/newsticker/meldung/WIFIonICE-CCC-warnt-vor-anhaltendem-Sicherheitsproblem-beim-Bahn-WLAN-3773839.html)" ([Heise](https://www.heise.de/security/news/))
 
-Daraufhin werden die beiden urspr&uuml;nglich beschriebenen Schnittstellen scheinbar komplett deaktiviert. [8] [9]
+Daraufhin werden die beiden urspr&uuml;nglich beschriebenen Schnittstellen umkonfiguriert und sind nun nicht mehr erreichbar. [8] [9]
 Eine dritte Schnittstelle, &uuml;ber welche die erw&auml;hnten Daten verf&uuml;gbar waren, wird [abgesichert](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Response_headers). [10]
-Ein Teil der beschriebenen Daten ist allerdings immer noch &uuml;ber eine vierte Schnittstelle im [Unterhaltungs-Bereich](https://inside.bahn.de/maxdome-onboard-ice/) des ICE-Portals verf&uuml;gbar. [11]
 
 - [8] [JSONP API ombord.info](https://www.ombord.info/api/jsonp/position/?callback=console.log) deaktiviert
 - [9] [XML API ombord.info](https://www.ombord.info/api/xml/position/) deaktiviert
 - [10] [JSONP API imice.de](http://portal.imice.de/api1/rs/status) gesch&uuml;tzt
+
+### Aktueller Status
+
+Ein Teil der beschriebenen Daten ist immer noch &uuml;ber eine vierte Schnittstelle im [Unterhaltungs-Bereich](https://inside.bahn.de/maxdome-onboard-ice/) des ICE-Portals verf&uuml;gbar. [11]
+
 - [11] [JSON API maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) :open_mouth:
 
-Der Code [in diesem Repository](https://github.com/hacker-bastl/omboard) dient [der Demonstration](https://hacker-bastl.github.io/omboard/) ("Proof of Concept") ebendieser Sicherheitsl&uuml;cke
+Der Code [in diesem Repository](https://github.com/hacker-bastl/omboard) dient [der Demonstration](https://hacker-bastl.github.io/omboard/) ("Proof of Concept") ebendieser Sicherheitsl&uuml;cke.
 
-(die geringe technische Komplexit&auml; steht dabei in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das l&auml;sst bef&uuml;rchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelm&auml;igen Versp&auml;tungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)"...)
+### Bewertung
+
+Die geringe technische Komplexit&auml;t des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das l&auml;sst bef&uuml;rchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelm&auml;igen Versp&auml;tungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)"...
+
+> Unsere Kunden, Mitarbeiter und Geschäftspartner legen zu Recht Wert auf die sparsame Erhebung und den sorgsamen Umgang mit ihren Daten. Deshalb haben wir es uns zur Aufgabe gemacht, eine besondere Verantwortung für diese Daten zu tragen.
+
+- von / siehe "[Datenschutz im DB-Konzern](http://www.deutschebahn.com/de/konzern/datenschutz/vorstellung_datenschutz.html)"
