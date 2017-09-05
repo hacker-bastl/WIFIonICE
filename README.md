@@ -47,4 +47,87 @@ Der Code [in diesem Repository](https://github.com/hacker-bastl/omboard) dient [
 
 ### Bewertung
 
-Die geringe technische Komplexität des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)"...
+Die geringe technische Komplexität des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)" :disappointed:
+
+### Daten-Felder
+
+##### [www.ombord.info/api/jsonp/user](https://www.ombord.info/api/jsonp/user/?callback=console.log)
+
+```
+({
+    "version": ...,
+    "ip": ...,
+    "mac": ...,
+    "online": ...,
+    "timeleft": ...,
+    "authenticated": ...,
+    "userclass": ...,
+    "expires": ...,
+    "timeused": ...,
+    "data_download_used": ...,
+    "data_upload_used": ...,
+    "data_total_used": ...,
+    "data_download_limit": ...,
+    "data_upload_limit": ...,
+    "data_total_limit": ...,
+    "bandwidth_download_limit": ...,
+    "bandwidth_upload_limit": ...
+});
+```
+
+#### [www.ombord.info/api/xml/position](https://www.ombord.info/api/xml/position/)
+
+```
+<position version="1.0">
+  <time type="double"> ... </time>
+  <age type="integer"> ... </age>
+  <latitude type="double"> ... </latitude>
+  <longitude type="double"> ... </longitude>
+  <altitude type="double"> ... </altitude>
+  <speed type="double"> ... </speed>
+  <cmg type="double"> ... </cmg>
+  <satellites type="integer"> ... </satellites>
+  <mode type="integer"> ... </mode>
+</position>
+
+```
+
+#### [imice.de/api1/rs/status](http://portal.imice.de/api1/rs/status)
+
+```
+{
+  "connection": ...,
+  "servicelevel": ...,
+  "speed": ...,
+  "gpsStatus": ...,
+  "latitude": ...,
+  "longitude": ...,
+  "serverTime": ...,
+  "wagonClass": ...
+}
+```
+
+#### [maxdome-onboard.de/api/v1/info/trainenvironmentdata](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata)
+
+```
+{
+    "bahnUserId": ...,
+    "location": {
+        "longitude": ...,
+        "latitude": ...
+    },
+    "zipId": ...,
+    "locomotiveId": ...,
+    "trainNumber": ...,
+    "ssd": {
+        "ssdid": ...,
+        "ssddate": ...,
+        "ssdcolor": ...
+    },
+    "connection": {
+        "wifiStatus": ...,
+        "bwmax": ...,
+        "radioStatus": ...
+    }
+}
+```
