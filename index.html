@@ -21,7 +21,8 @@
       });
 
       request.addEventListener('load', function() {
-        document.querySelector('pre').textContent = JSON.stringify(JSON.parse(request.responseText), null, 4);
+        document.querySelector('pre').textContent = request.responseText != '{}' ?
+          JSON.stringify(JSON.parse(request.responseText), null, 4) : 'not connected to "WIFIonICE"?';
       });
 
       request.addEventListener('timeout', function() {
