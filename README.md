@@ -38,20 +38,16 @@ Daraufhin werden die beiden ursprünglich beschriebenen Schnittstellen umkonfigu
 Eine dritte Schnittstelle, über welche die erwähnten Daten verfügbar waren, wird [abgesichert](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Response_headers). [10]
 Ein Teil der beschriebenen Daten ist immer noch über eine vierte Schnittstelle im [Unterhaltungs-Bereich](https://inside.bahn.de/maxdome-onboard-ice/) des ICE-Portals verfügbar. [11]
 
-- [8] [JSONP API ombord.info](https://www.ombord.info/api/jsonp/position/?callback=console.log) deaktiviert
-- [9] [XML API ombord.info](https://www.ombord.info/api/xml/position/) deaktiviert
-- [10] [JSONP API imice.de](http://portal.imice.de/api1/rs/status) geschützt
-- [11] [JSON API maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) :open_mouth:
+- [8] [JSONP API ombord.info](https://www.ombord.info/api/jsonp/position/?callback=console.log) deaktiviert :no_entry_sign:
+- [9] [XML API ombord.info](https://www.ombord.info/api/xml/position/) deaktiviert :no_entry_sign:
+- [10] [JSONP API imice.de](http://portal.imice.de/api1/rs/status) geschützt :lock:
+- [11] [JSON API maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) :warning:
 
-Der Code [in diesem Repository](https://github.com/hacker-bastl/omboard) dient [der Demonstration](https://hacker-bastl.github.io/omboard/) ("Proof of Concept") dieser Sicherheitslücke.
-
-### Bewertung
-
-Die geringe technische Komplexität des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)" :disappointed:
+[Diese Seite](https://hacker-bastl.github.io/omboard/) ([Code](index.html)) demonstriert einen [CSRF](https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery) Zugriff ("Proof of Concept") auf die "maxdome-onboard.de" API.
 
 ### Daten-Felder
 
-##### [www.ombord.info/api/jsonp/user](https://www.ombord.info/api/jsonp/user/?callback=console.log)
+[8] [www.ombord.info/api/jsonp/user](https://www.ombord.info/api/jsonp/user/?callback=console.log)
 
 ```
 ({
@@ -75,7 +71,7 @@ Die geringe technische Komplexität des beschriebenen Themas steht in starkem Ge
 });
 ```
 
-#### [www.ombord.info/api/xml/position](https://www.ombord.info/api/xml/position/)
+[9] [www.ombord.info/api/xml/position](https://www.ombord.info/api/xml/position/)
 
 ```
 <position version="1.0">
@@ -92,7 +88,7 @@ Die geringe technische Komplexität des beschriebenen Themas steht in starkem Ge
 
 ```
 
-#### [imice.de/api1/rs/status](http://portal.imice.de/api1/rs/status)
+[10] [imice.de/api1/rs/status](http://portal.imice.de/api1/rs/status)
 
 ```
 {
@@ -107,7 +103,7 @@ Die geringe technische Komplexität des beschriebenen Themas steht in starkem Ge
 }
 ```
 
-#### [maxdome-onboard.de/api/v1/info/trainenvironmentdata](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata)
+[11] [maxdome-onboard.de/api/v1/info/trainenvironmentdata](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata)
 
 ```
 {
@@ -131,3 +127,7 @@ Die geringe technische Komplexität des beschriebenen Themas steht in starkem Ge
     }
 }
 ```
+
+### Einschätzung
+
+Die geringe technische Komplexität des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt mich befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)" :disappointed:
