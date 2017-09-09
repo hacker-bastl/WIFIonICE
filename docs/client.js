@@ -54,6 +54,7 @@ WIFIonICE.storeMeasurement = function(dataset) {
   });
   var request = new XMLHttpRequest();
   request.addEventListener('load', function() {
+    WIFIonICE.leafletMap.setView([dataset.location.latitude, dataset.location.longitude], 13);
     WIFIonICE.displayMeasurements([{
       longitude: dataset.location.longitude,
       latitude: dataset.location.latitude,
@@ -71,8 +72,10 @@ WIFIonICE.storeMeasurement = function(dataset) {
 WIFIonICE.updateMeasurement = setInterval(function() {
   var request = new XMLHttpRequest();
   request.addEventListener('load', function() {
-    if (request.responseText == '{}') console.error('not connected to "WIFIonICE"?');
-    else WIFIonICE.storeMeasurement(JSON.parse(request.responseText));
+    if (request.responseText == '{}') {
+      console.error('not connected to "WIFIonICE"?');
+      clearInterval(WIFIonICE.updateMeasurement);
+    } else WIFIonICE.storeMeasurement(JSON.parse(request.responseText));
   });
   request.open('GET', 'https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata');
   request.send(null);
