@@ -9,10 +9,9 @@ const WIFIonICE = window.WIFIonICE = {
     clearTimeout(WIFIonICE.delayInput);
     WIFIonICE.delayInput = setTimeout(WIFIonICE.loadMeasurements, 1E3);
   },
-  baseURL: ['herokuapp.com', 'github.io'].indexOf(location.host.split(/\./g).slice(-2).join('.')) > -1 ?
-    '//fierce-castle-41016.herokuapp.com' : '', // TODO !?
   delayInput: null,
   nodeCache: [],
+  baseURL: '', // TODO !?
 };
 
 // http://leafletjs.com/reference-1.2.0.html#circle
