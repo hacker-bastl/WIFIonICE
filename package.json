@@ -1,0 +1,24 @@
+{
+  "name": "omboard-info",
+  "license": "WTFPL",
+  "repository": {
+    "url": "https://github.com/hacker-bastl/omboard",
+    "type": "git"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node local.js"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "pg":"*"
+  },
+  "devDependencies": {
+    "sqlite3":"*"
+  }
+}
