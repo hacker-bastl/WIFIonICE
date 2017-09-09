@@ -63,25 +63,22 @@ WIFIonICE.storeMeasurement = function(dataset) {
   request.send(JSON.stringify(dataset));
 };
 
+WIFIonICE.updateMeasurement = setInterval(function() {
+  var request = new XMLHttpRequest();
+  request.addEventListener('load', function() {
+    if (request.responseText == '{}')
+      return console.error('not connected to "WIFIonICE"?');
+    var response = JSON.parse(request.responseText);
+    WIFIonICE.storeMeasurement(response);
+    console.info(response);
+  });
+  request.open('GET', WIFIonICE.apiURL);
+  request.send(null);
+}, parseInt(60 / WIFIonICE.requestsPerMinute) * 1E3);
+
 ['moveend', 'resize', 'zoomend'].forEach(function(event) {
   L.DomEvent.on(WIFIonICE.leafletMap, event, function() {
     clearTimeout(WIFIonICE.delayInput);
     WIFIonICE.delayInput = setTimeout(WIFIonICE.loadMeasurements, 1E3);
   });
 });
-
-setInterval(function() {
-  var request = new XMLHttpRequest();
-  request.addEventListener('load', function() {
-    if (request.responseText == '{}')
-      return console.error('not connected to WIFIonICE :-(');
-    var response = JSON.parse(request.responseText);
-    WIFIonICE.storeMeasurement(response);
-    console.info(response);
-  });
-  request.addEventListener('loadend', function() {
-    console.log(request.statusText, WIFIonICE.apiURL);
-  });
-  request.open('GET', WIFIonICE.apiURL);
-  request.send(null);
-}, parseInt(60 / requestsPerMinute) * 1E3);
