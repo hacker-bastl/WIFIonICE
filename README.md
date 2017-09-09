@@ -8,12 +8,14 @@ Aber ist die Verfügbarkeit des "WIFIonICE" wirklich so schlecht? :open_mouth:
 
 <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-1.png" width="400" height="400" /></kbd> <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-2.png" width="400" height="400" /></kbd>
 
+Wo der Zug sich gerade befindet (und die Daten zur Qualität von WLAN und Funknetzwerk) erfahren wir von "Maxdome-Onboard".
+
 (contributing info here?)
 
 
 ### Für Entwickler
 
-Die "[Single-Page-App](https://hacker-bastl.github.io/omboard/)" besteht aus einer [Server-Anwendung](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einer [Karte](docs/index.html) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
+Die App besteht aus einem [Server](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einem [Client](docs/index.html) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
 
 Test / Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](database/postgress.js))
 
