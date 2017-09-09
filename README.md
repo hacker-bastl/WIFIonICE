@@ -21,9 +21,9 @@ Sollten Sie allerdings keine Speicherung dieser Daten wünschen, sollten Sie sta
 
 ### Für Entwickler...
 
-Die App besteht aus einem [Server](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einem [Client](docs/client.js) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
+Die App besteht aus einem [Server](application.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einem [Client](docs/client.js) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
 
-Test / Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](database/postgress.js))
+Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](postgress.js))
 
 ```bash
 git clone https://github.com/hacker-bastl/omboard.git
@@ -34,7 +34,7 @@ heroku addons:create heroku-postgresql:hobby-dev
 git push heroku master
 ```
 
-Lokaler / "offline" Test (mit [SQLite3 DB](database/sqlite3.js))
+Lokaler / "offline" Test (mit [SQLite3 DB](sqlite3.js))
 
 ```bash
 git clone https://github.com/hacker-bastl/omboard.git
@@ -84,16 +84,17 @@ Diesbezügliche Medienberichte kommentiert ein Firmensprecher der Bahn wie folgt
 
 ### Aktueller Status
 
-Daraufhin werden die beiden ursprünglich beschriebenen Schnittstellen umkonfiguriert und sind nun nicht mehr erreichbar. [8] [9]
+Ende Juli 2017 werden die beiden ursprünglich beschriebenen Schnittstellen umkonfiguriert und sind nun nicht mehr erreichbar. [8] [9]
 Eine dritte Schnittstelle, über welche die erwähnten Daten verfügbar waren, wird [abgesichert](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Response_headers). [10]
 Ein Teil der beschriebenen Daten ist immer noch über eine vierte Schnittstelle im [Unterhaltungs-Bereich](https://inside.bahn.de/maxdome-onboard-ice/) des ICE-Portals verfügbar. [11]
+Diese enthalten aber (scheinbar?) keine eineindeutigen Merkmale (wie MAC-Adresse)
 
 - [8] :no_entry_sign: [JSONP API ombord.info](https://www.ombord.info/api/jsonp/position/?callback=console.log) deaktiviert
 - [9] :no_entry_sign: [XML API ombord.info](https://www.ombord.info/api/xml/position/) deaktiviert
 - [10] :lock: [JSONP API imice.de](http://portal.imice.de/api1/rs/status) geschützt
 - [11] :warning: [JSON API maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata)
 
-[Diese Seite](https://hacker-bastl.github.io/omboard/csrf-demo.html) ([Code](docs/csrf-demo.html)) demonstriert einen [CSRF](https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery) Zugriff ("Proof of Concept") auf die "maxdome-onboard.de" API.
+[Diese Seite](https://hacker-bastl.github.io/omboard/csrf-demo.html) ([Code](docs/csrf-demo.html)) demonstriert den [CSRF](https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery) Zugriff auf die "maxdome-onboard.de" API.
 
 
 ### Daten-Felder

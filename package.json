@@ -5,9 +5,9 @@
     "url": "https://github.com/hacker-bastl/omboard",
     "type": "git"
   },
-  "main": "server.js",
+  "main": "application.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node application.js"
   },
   "engines": {
     "node": "*"
