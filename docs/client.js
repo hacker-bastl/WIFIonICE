@@ -54,7 +54,13 @@ WIFIonICE.storeMeasurement = function(dataset) {
   });
   var request = new XMLHttpRequest();
   request.addEventListener('load', function() {
-    WIFIonICE.displayMeasurements([dataset]);
+    WIFIonICE.displayMeasurements([{
+      longitude: dataset.location.longitude,
+      latitude: dataset.location.latitude,
+      bwmax: dataset.connection.bwmax,
+      radioStatus: dataset.connection.radioStatus,
+      wifiStatus: dataset.connection.wifiStatus,
+    }]);
   });
   request.open('POST', address);
   request.setRequestHeader('Content-Type', 'application/json');
