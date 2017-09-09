@@ -1,6 +1,5 @@
 const WIFIonICE = window.WIFIonICE = {
   baseURL: location.host != 'localhost' ? '//fierce-castle-41016.herokuapp.com' : '', // TODO !?
-  apiURL: 'https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata',
   requestTimeout: 60 * 1E3,
   requestsPerMinute: 20,
   delayInput: null,
@@ -66,13 +65,10 @@ WIFIonICE.storeMeasurement = function(dataset) {
 WIFIonICE.updateMeasurement = setInterval(function() {
   var request = new XMLHttpRequest();
   request.addEventListener('load', function() {
-    if (request.responseText == '{}')
-      return console.error('not connected to "WIFIonICE"?');
-    var response = JSON.parse(request.responseText);
-    WIFIonICE.storeMeasurement(response);
-    console.info(response);
+    if (request.responseText == '{}') console.error('not connected to "WIFIonICE"?');
+    else WIFIonICE.storeMeasurement(JSON.parse(request.responseText));
   });
-  request.open('GET', WIFIonICE.apiURL);
+  request.open('GET', 'https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata');
   request.send(null);
 }, parseInt(60 / WIFIonICE.requestsPerMinute) * 1E3);
 
