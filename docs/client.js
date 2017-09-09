@@ -1,5 +1,6 @@
 const WIFIonICE = window.WIFIonICE = {
-  baseURL: location.host != 'localhost' ? '//fierce-castle-41016.herokuapp.com' : '', // TODO !?
+  baseURL: location.host != 'localhost' ?
+    '//fierce-castle-41016.herokuapp.com' : '', // TODO !?
   requestTimeout: 60 * 1E3,
   requestsPerMinute: 20,
   delayInput: null,
@@ -20,10 +21,17 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 WIFIonICE.displayMeasurements = function(measurements) {
   measurements.map(function(entry) {
-    return L.circle([entry.longitude, entry.latitude], {
+    var node = L.circle([entry.longitude, entry.latitude], {
       color: 'red', // TODO: css?
       radius: 4,
     }).addTo(WIFIonICE.leafletMap);
+    node.addEventListener('click', function(event) {
+      WIFIonICE.leafletMap.openTooltip(JSON
+        .stringify(entry, null, 4), [entry.longitude, entry.latitude], {
+          direction: 'bottom',
+        });
+    });
+    return node;
   });
 };
 
@@ -53,7 +61,7 @@ WIFIonICE.storeMeasurement = function(dataset) {
     path: WIFIonICE.baseURL,
   });
   var request = new XMLHttpRequest();
-  request.addEventListener('load', function() {
+  request.addEventListener('loadend', function() {
     WIFIonICE.leafletMap.setView([dataset.location.latitude, dataset.location.longitude], 13);
     WIFIonICE.displayMeasurements([{
       longitude: dataset.location.longitude,
