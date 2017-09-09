@@ -5,12 +5,13 @@ const application = express();
 // https://github.com/expressjs/cors#configuration-options
 const cors_config = {
   origin: 'https://hacker-bastl.github.io',
-  optionsSuccessStatus: 200,
+  // optionsSuccessStatus: 200,
 };
+
 // https://github.com/expressjs/cors#enabling-cors-pre-flight
 const cors_module = require('cors');
-application.use('/', cors_module(cors_config));
-application.options('/', cors_module(cors_config));
+application.use('*', cors_module(cors_config));
+application.options('*', cors_module(cors_config));
 
 // https://expressjs.com/starter/static-files.html
 application.use(express.static(__dirname + '/docs'));
