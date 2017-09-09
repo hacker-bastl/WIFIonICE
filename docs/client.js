@@ -1,32 +1,30 @@
+const WIFIonICE = window.WIFIonICE = {
+  baseURL: location.host != 'localhost' ? '//fierce-castle-41016.herokuapp.com' : '', // TODO !?
+  apiURL: 'https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata',
+  requestTimeout: 60 * 1E3,
+  requestsPerMinute: 20,
+  delayInput: null,
+};
+
 // http://leafletjs.com/examples/quick-start/
 
-const WIFIonICE = window.WIFIonICE = {
-  leafletMap: L.map('map', {
-    center: [50.1068429, 8.6401972], // DB Vertrieb GmbH
-    zoom: 9,
-  }),
-  updateMap: function() {
-    clearTimeout(WIFIonICE.delayInput);
-    WIFIonICE.delayInput = setTimeout(WIFIonICE.loadMeasurements, 1E3);
-  },
-  delayInput: null,
-  nodeCache: [],
-  baseURL: '', // TODO !?
-};
+WIFIonICE.leafletMap = L.map('map', {
+  center: [50.1068429, 8.6401972],
+  zoom: 9,
+});
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+  attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a>',
+}).addTo(WIFIonICE.leafletMap);
 
 // http://leafletjs.com/reference-1.2.0.html#circle
 
 WIFIonICE.displayMeasurements = function(measurements) {
-  WIFIonICE.nodeCache.forEach(function(old) {
-    old.remove(); // TODO: necessary?
-  });
   measurements.map(function(entry) {
     return L.circle([entry.longitude, entry.latitude], {
       color: 'red', // TODO: css?
       radius: 4,
     }).addTo(WIFIonICE.leafletMap);
-  }).forEach(function(node) {
-    WIFIonICE.nodeCache.push(node);
   });
 };
 
@@ -34,8 +32,8 @@ WIFIonICE.displayMeasurements = function(measurements) {
 
 WIFIonICE.loadMeasurements = function() {
   var area = WIFIonICE.leafletMap.getBounds();
-  var address = L.Util.template('{hostname}/db/{swLat}/{swLon}/{neLat}/{neLon}', {
-    hostname: WIFIonICE.baseURL,
+  var address = L.Util.template('{path}/db/{swLat}/{swLon}/{neLat}/{neLon}', {
+    path: WIFIonICE.baseURL,
     swLat: area._southWest.lat,
     swLon: area._southWest.lng,
     neLat: area._northEast.lat,
@@ -46,39 +44,44 @@ WIFIonICE.loadMeasurements = function() {
     WIFIonICE.displayMeasurements(JSON.parse(request.responseText));
   });
   request.open('GET', address);
+  request.timeout = WIFIonICE.requestTimeout;
   request.send(null);
 };
 
 WIFIonICE.storeMeasurement = function(dataset) {
-  var address = L.Util.template('{hostname}/db/{timestamp}', {
+  var address = L.Util.template('{path}/db/{timestamp}', {
     timestamp: new Date().getTime(),
-    hostname: WIFIonICE.baseURL,
+    path: WIFIonICE.baseURL,
   });
   var request = new XMLHttpRequest();
+  request.addEventListener('load', function() {
+    WIFIonICE.displayMeasurements([dataset]);
+  });
   request.open('POST', address);
   request.setRequestHeader('Content-Type', 'application/json');
+  request.timeout = WIFIonICE.requestTimeout;
   request.send(JSON.stringify(dataset));
 };
 
-// http://leafletjs.com/examples/quick-start/
-
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a>',
-}).addTo(WIFIonICE.leafletMap);
-
 ['moveend', 'resize', 'zoomend'].forEach(function(event) {
-  L.DomEvent.on(WIFIonICE.leafletMap, event, WIFIonICE.updateMap);
+  L.DomEvent.on(WIFIonICE.leafletMap, event, function() {
+    clearTimeout(WIFIonICE.delayInput);
+    WIFIonICE.delayInput = setTimeout(WIFIonICE.loadMeasurements, 1E3);
+  });
 });
 
-if (false) // TESTING
-  WIFIonICE.storeMeasurement({
-    location: {
-      longitude: 50.1068429,
-      latitude: 8.6401972,
-    },
-    connection: {
-      bwmax: 'test',
-      radioStatus: 'test',
-      wifiStatus: 'test',
-    }
+setInterval(function() {
+  var request = new XMLHttpRequest();
+  request.addEventListener('load', function() {
+    if (request.responseText == '{}')
+      return console.error('not connected to WIFIonICE :-(');
+    var response = JSON.parse(request.responseText);
+    WIFIonICE.storeMeasurement(response);
+    console.info(response);
   });
+  request.addEventListener('loadend', function() {
+    console.log(request.statusText, WIFIonICE.apiURL);
+  });
+  request.open('GET', WIFIonICE.apiURL);
+  request.send(null);
+}, parseInt(60 / requestsPerMinute) * 1E3);
