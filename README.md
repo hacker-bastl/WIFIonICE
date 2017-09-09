@@ -45,6 +45,41 @@ Ein Teil der beschriebenen Daten ist immer noch über eine vierte Schnittstelle 
 
 [Diese Seite](https://hacker-bastl.github.io/omboard/) ([Code](docs/index.html)) demonstriert einen [CSRF](https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery) Zugriff ("Proof of Concept") auf die "maxdome-onboard.de" API.
 
+### Einschätzung
+
+Die geringe technische Komplexität des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt mich befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)" :disappointed:
+
+### "Umnutzung"
+
+Vielleicht kann man diese Datenschutz-Lücke aber auch "sinnvoll" einsetzen?
+Viele Kunden scheinen enttäuscht von der "WLAN-Abdeckung"
+(siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
+... wie wäre es mit einer Karte der "WIFIonICE-Verfügbarkeit"? :wink:
+
+- [Karte](public) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
+- [Datenbank](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html)
+
+### Getting Started
+
+Test / Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](database/postgress.js))
+
+```bash
+git clone https://github.com/hacker-bastl/omboard.git
+cd omboard
+heroku create
+heroku addons:create heroku-postgresql:hobby-dev
+git push heroku master
+```
+
+Lokaler / "offline" Test (mit [SQLite3 DB](database/sqlite3.js))
+
+```bash
+git clone https://github.com/hacker-bastl/omboard.git
+cd omboard
+npm install
+node server
+```
+
 ### Daten-Felder
 
 [8] [www.ombord.info/api/jsonp/user](https://www.ombord.info/api/jsonp/user/?callback=console.log)
@@ -127,19 +162,3 @@ Ein Teil der beschriebenen Daten ist immer noch über eine vierte Schnittstelle 
     }
 }
 ```
-
-### Einschätzung
-
-Die geringe technische Komplexität des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt mich befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)" :disappointed:
-
-### "Umnutzung"
-
-Vielleicht kann man diese Datenschutz-Lücke aber auch "sinnvoll" einsetzen?
-Viele Kunden scheinen enttäuscht von der "WLAN-Abdeckung"
-(siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
-... wie wäre es mit einer Karte der "WIFIonICE-Verfügbarkeit"? :wink:
-
-- Karte: [public](public) ([leafletjs](http://leafletjs.com/reference.html) / [openstreetmap](https://www.openstreetmap.org/))
-- Datenbank: [server.js](server.js) ([nodejs](https://nodejs.org/api/) / [express](http://expressjs.com/api.html))
-  - [postgress.js](database/postgress.js) (db [on heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs))
-  - [sqlite3.js](database/sqlite3.js) ("offline" db)
