@@ -2,15 +2,17 @@
 
 Viele Bahn-Kunden scheinen enttäuscht von der "WLAN-Abdeckung" im ICE (siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
 
-Aber ist die Verfügbarkeit des "WIFIonICE" wirklich so schlecht? :open_mouth:
+:bullettrain_side: :satellite: :signal_strength: Aber ist die Verfügbarkeit des "WIFIonICE" wirklich so schlecht? :open_mouth:
 
-:round_pushpin: [hacker-bastl.github.io/omboard](https://hacker-bastl.github.io/omboard/) hier sammeln wir die Daten dazu :smile:
+:earth_africa: :round_pushpin: :mag: [hacker-bastl.github.io/omboard](https://hacker-bastl.github.io/omboard/) hier sammeln wir die Daten dazu :smile:
 
 <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-1.png" width="400" height="400" /></kbd> <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-2.png" width="400" height="400" /></kbd>
 
-Wo der Zug sich gerade befindet (und die Daten zur Qualität von WLAN und Funknetzwerk) erfahren wir von "Maxdome-Onboard".
-
-(contributing info here?)
+:warning: **Hinweis:** wenn Sie den o.g. Link im ICE über das "WIFIonICE" &ouml;ffnen, werden Daten von Ihrem Endger&auml;t auf die angezeigte Karte &uuml;bertragen und gespeichert:
+die Position des Zugs, die Nummern des Zugs und der Lok, sowie Daten zur Qualit&auml;t der WLAN und Funknetzverbindung (Details siehe weiter unten und im [Quellcode](database))
+**Wir freuen uns &uuml;ber jeden, der die Karte aufruft und damit aktuelle Daten zum ICE WLAN beisteuert.**
+Sie helfen damit allen Mitfahren, die Informationen zur Qualit&auml;t des ICE WLANs suchen.
+Sollten Sie allerdings keine Speicherung dieser Daten w&uuml;nschen, sollten Sie statt dem o.g. Link lieber nur [einen Screenshot ansehen](https://hacker-bastl.github.io/omboard/screenshot-1.png).
 
 
 ### Für Entwickler
@@ -48,8 +50,6 @@ Da diese Schnittstellen nicht bzw. nur mangelhaft abgesichert wurden, können be
 > Unsere Kunden, Mitarbeiter und Geschäftspartner legen zu Recht Wert auf die sparsame Erhebung und den sorgsamen Umgang mit ihren Daten. Deshalb haben wir es uns zur Aufgabe gemacht, eine besondere Verantwortung für diese Daten zu tragen.
 
 - von / siehe "[Datenschutz im DB-Konzern](http://www.deutschebahn.com/de/konzern/datenschutz/vorstellung_datenschutz.html)"
-
-<kbd><a href="https://inside.bahn.de/wifionice-wlan-ice-login/"><img width="371" height="272" src="https://inside.bahn.de/wordpress/uploads/2017/04/iPad_mini_ICE-Portal_Screen_V03-4-660x483.png" /></a></kbd> <kbd><a href="http://hannover.ccc.de/~nexus/dbwifi/chapter2.html"><img width="371" height="272" src="https://inside.bahn.de/wordpress/uploads/2017/04/iPad_mini_ICE-Portal_Screen_Kinderwelt-660x483.png" /></a></kbd>
 
 
 ### Zeitlicher Ablauf
