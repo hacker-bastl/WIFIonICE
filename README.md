@@ -2,7 +2,7 @@
 
 Viele Bahn-Kunden [scheinen enttäuscht](https://twitter.com/hashtag/WiFioniCE?src=hash) über die "WLAN-Abdeckung" im ICE ...
 
-<kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-safari.png?v.0.1" width="400" height="400" /></kbd> <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-chrome.png?v.0.1" width="400" height="400" /></kbd>
+<kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-safari.png?v.0.2" width="400" height="400" /></kbd> <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-chrome.png?v.0.2" width="400" height="400" /></kbd>
 
 :bullettrain_side: :satellite: :question: Aber ist die Verfügbarkeit des "WIFIonICE" wirklich so schlecht? :open_mouth:
 
