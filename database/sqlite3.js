@@ -15,7 +15,8 @@ var database = new sqlite3.Database('./database.sqlite3', function(error) {
 const router = module.exports = require('express').Router();
 
 router.post('/db/:timestamp', function(request, response) {
-  request.body.timestamp = new Date().getTime();
+  request.body.timestamp = request.params.timestamp;
+  request.body.timestamp = new Date().getTime(); // TODO: check delta
   var database = new sqlite3.Database('./database.sqlite3', function(error) {
     if (!!error) response.status(503).send(error.message);
     else database.serialize(function() {

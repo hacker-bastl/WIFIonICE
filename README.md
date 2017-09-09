@@ -1,12 +1,13 @@
-### Für Bahn-Fahrer
+### Für Bahn-Fahrer...
 
 Viele Bahn-Kunden [scheinen enttäuscht](https://twitter.com/hashtag/WiFioniCE?src=hash) über die "WLAN-Abdeckung" im ICE ...
 
 <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-safari.png?v.0.2" width="400" height="400" /></kbd> <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-chrome.png?v.0.2" width="400" height="400" /></kbd>
 
-:bullettrain_side: :satellite: :question: Aber ist die Verfügbarkeit des "WIFIonICE" wirklich so schlecht? :open_mouth:
+:bullettrain_side: :satellite: Aber ist die Verfügbarkeit des "WIFIonICE" wirklich so schlecht? :question: :open_mouth:
 
-:signal_strength: :mag: :exclamation: [hacker-bastl.github.io/omboard](https://hacker-bastl.github.io/omboard/) hier sammeln wir die Daten dazu :smile:
+:signal_strength: :mag: [hacker-bastl.github.io/omboard](https://hacker-bastl.github.io/omboard/) hier sammeln wir die Daten dazu :exclamation: :smile:
+
 
 ### Datenschutzhinweis
 
@@ -18,9 +19,9 @@ Sie helfen damit allen Mitfahren, die Informationen zur Qualität des ICE WLANs 
 Sollten Sie allerdings keine Speicherung dieser Daten wünschen, sollten Sie statt dem o.g. Link lieber nur [einen Screenshot ansehen](https://hacker-bastl.github.io/omboard/screenshot-safari.png?v.0.1).
 
 
-### Für Entwickler
+### Für Entwickler...
 
-Die App besteht aus einem [Server](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einem [Client](docs/index.html) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
+Die App besteht aus einem [Server](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einem [Client](docs/client.js) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
 
 Test / Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](database/postgress.js))
 
@@ -45,7 +46,7 @@ node server
 (TODO: switch from postgress / sqlite3 to [openstreetmap API](http://wiki.openstreetmap.org/wiki/API_v0.6))
 
 
-### Hintergrund
+### Hintergrund...
 
 Wenn ein Kunde [das WLAN im ICE](https://inside.bahn.de/wifionice-wlan-ice-login/) nutzt, werden verschiedene [personenbeziehbaren Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten) (z.B. MAC-Adresse, Aufenthaltsort des Zuges, Wagenklasse, etc.) über [Schnittstellen](https://de.wikipedia.org/wiki/Programmierschnittstelle) (APIs) zugänglich gemacht.
 Da diese Schnittstellen nicht bzw. nur mangelhaft abgesichert wurden, können beliebige (auch nicht dafür authorisierte) Webseiten diese Daten auslesen.

@@ -16,7 +16,8 @@ WIFIonICE.leafletMap = L.map('map', {
 });
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a>',
+  attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a> | ' +
+    '<a href="https://github.com/hacker-bastl/omboard#readme">omboard</a>',
 }).addTo(WIFIonICE.leafletMap);
 
 // http://leafletjs.com/reference-1.2.0.html#circle
@@ -27,6 +28,7 @@ WIFIonICE.displayMeasurements = function(measurements) {
       color: 'red', // TODO: css?
       radius: 4,
     }).addTo(WIFIonICE.leafletMap);
+    node.title = JSON.stringify(entry, null, 4);
     node.addEventListener('click', function() {
       console.info(entry);
     });
@@ -38,8 +40,8 @@ WIFIonICE.displayMeasurements = function(measurements) {
 
 WIFIonICE.loadMeasurements = function() {
   var area = WIFIonICE.leafletMap.getBounds();
-  var address = L.Util.template('{path}/db/{swLat}/{swLon}/{neLat}/{neLon}', {
-    path: WIFIonICE.baseURL,
+  var address = L.Util.template('{address}/db/{swLat}/{swLon}/{neLat}/{neLon}', {
+    address: WIFIonICE.baseURL,
     swLat: area._southWest.lat,
     swLon: area._southWest.lng,
     neLat: area._northEast.lat,
@@ -55,13 +57,13 @@ WIFIonICE.loadMeasurements = function() {
 };
 
 WIFIonICE.storeMeasurement = function(dataset) {
-  var address = L.Util.template('{path}/db/{timestamp}', {
+  var address = L.Util.template('{address}/db/{timestamp}', {
+    address: WIFIonICE.baseURL,
     timestamp: new Date().getTime(),
-    path: WIFIonICE.baseURL,
   });
   var request = new XMLHttpRequest();
   request.addEventListener('loadend', function() {
-    WIFIonICE.leafletMap.setView([dataset.location.latitude, dataset.location.longitude], 9); // 13? TODO
+    WIFIonICE.leafletMap.setView([dataset.location.latitude, dataset.location.longitude], 11);
     WIFIonICE.displayMeasurements([{
       longitude: dataset.location.longitude,
       latitude: dataset.location.latitude,
@@ -82,7 +84,7 @@ WIFIonICE.updateMeasurement = setInterval(function() {
   request.addEventListener('load', function() {
     if (request.responseText != '{}')
       return WIFIonICE.storeMeasurement(JSON.parse(request.responseText));
-    else console.error('not connected to "WIFIonICE"?');
+    else document.title = 'not connected to "WIFIonICE"?';
     clearInterval(WIFIonICE.updateMeasurement);
   });
   request.open('GET', address);
