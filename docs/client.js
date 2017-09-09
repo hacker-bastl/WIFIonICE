@@ -11,6 +11,7 @@ const WIFIonICE = window.WIFIonICE = {
   },
   delayInput: null,
   nodeCache: [],
+  baseURL: '', // TODO
 };
 
 // http://leafletjs.com/reference-1.2.0.html#circle
@@ -21,8 +22,8 @@ WIFIonICE.displayMeasurements = function(measurements) {
   });
   measurements.map(function(entry) {
     return L.circle([entry.longitude, entry.latitude], {
-      color: 'red',
-      radius: 4, // TODO: css?
+      color: 'red', // TODO: css?
+      radius: 4,
     }).addTo(WIFIonICE.leafletMap);
   }).forEach(function(node) {
     WIFIonICE.nodeCache.push(node);
@@ -33,7 +34,8 @@ WIFIonICE.displayMeasurements = function(measurements) {
 
 WIFIonICE.loadMeasurements = function() {
   var area = WIFIonICE.leafletMap.getBounds();
-  var address = L.Util.template('/db/{swLat}/{swLon}/{neLat}/{neLon}', {
+  var address = L.Util.template('{hostname}/db/{swLat}/{swLon}/{neLat}/{neLon}', {
+    hostname: WIFIonICE.baseURL,
     swLat: area._southWest.lat,
     swLon: area._southWest.lng,
     neLat: area._northEast.lat,
@@ -48,8 +50,9 @@ WIFIonICE.loadMeasurements = function() {
 };
 
 WIFIonICE.storeMeasurement = function(dataset) {
-  var address = L.Util.template('/db/{timestamp}', {
+  var address = L.Util.template('{hostname}/db/{timestamp}', {
     timestamp: new Date().getTime(),
+    hostname: WIFIonICE.baseURL,
   });
   var request = new XMLHttpRequest();
   request.open('POST', address);

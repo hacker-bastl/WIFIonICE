@@ -7,6 +7,8 @@ Da diese Schnittstellen nicht bzw. nur mangelhaft abgesichert wurden, können be
 
 - von / siehe "[Datenschutz im DB-Konzern](http://www.deutschebahn.com/de/konzern/datenschutz/vorstellung_datenschutz.html)"
 
+<a href="https://inside.bahn.de/wifionice-wlan-ice-login/"><img src="https://inside.bahn.de/wordpress/uploads/2017/04/iPad_mini_ICE-Portal_Screen_V03-4-660x483.png" /></a>
+
 ### Zeitlicher Ablauf
 
 Im Herbst 2016 wird die Deutsche Bahn über diese Sicherheitslücke informiert. [1]
@@ -45,6 +47,8 @@ Ein Teil der beschriebenen Daten ist immer noch über eine vierte Schnittstelle 
 
 [Diese Seite](https://hacker-bastl.github.io/omboard/csrf-demo.html) ([Code](docs/csrf-demo.html)) demonstriert einen [CSRF](https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery) Zugriff ("Proof of Concept") auf die "maxdome-onboard.de" API.
 
+<a href="http://hannover.ccc.de/~nexus/dbwifi/chapter2.html"><img src="https://inside.bahn.de/wordpress/uploads/2017/04/iPad_mini_ICE-Portal_Screen_Kinderwelt-660x483.png" /></a>
+
 ### Einschätzung
 
 Die geringe technische Komplexität des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt mich befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)" :disappointed:
@@ -52,10 +56,11 @@ Die geringe technische Komplexität des beschriebenen Themas steht in starkem Ge
 ### "Umnutzung"
 
 Vielleicht kann man diese Datenschutz-Lücke aber auch "sinnvoll" einsetzen?
-Viele Kunden scheinen enttäuscht von der "WLAN-Abdeckung"
-(siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
-Vielleicht hilft da eine Visualisierung der genauen "WIFIonICE-Verfügbarkeit"?
-z.B. eine [Datenbank](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und eine [Karte](public) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)?
+Viele Kunden scheinen enttäuscht von der "WLAN-Abdeckung" (siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
+Möglicherweise kann hier eine Visualisierung der genauen "WIFIonICE-Verfügbarkeit" Transparenz schaffen?
+(z.B. eine [Datenbank](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und eine [Karte](public) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)?)
+
+<kbd><img alt="screenshot 1" width="320" height="320" /></kbd> <kbd><img alt="screenshot 2" width="320" height="320" /></kbd>
 
 Test / Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](database/postgress.js))
 
@@ -79,7 +84,8 @@ node server
 
 ### Daten-Felder
 
-[8] [www.ombord.info/api/jsonp/user](https://www.ombord.info/api/jsonp/user/?callback=console.log)
+<details>
+  <summary> [8] <a href="https://www.ombord.info/api/jsonp/user/?callback=console.log">www.ombord.info/api/jsonp/user</a></summary>
 
 ```
 ({
@@ -103,7 +109,10 @@ node server
 });
 ```
 
-[9] [www.ombord.info/api/xml/position](https://www.ombord.info/api/xml/position/)
+</details>
+
+<details>
+  <summary> [9] <a href="https://www.ombord.info/api/xml/position/">www.ombord.info/api/xml/position</a></summary>
 
 ```
 <position version="1.0">
@@ -117,10 +126,12 @@ node server
   <satellites type="integer"> ... </satellites>
   <mode type="integer"> ... </mode>
 </position>
-
 ```
 
-[10] [imice.de/api1/rs/status](http://portal.imice.de/api1/rs/status)
+</details>
+
+<details>
+  <summary> [10] <a href="http://portal.imice.de/api1/rs/status">imice.de/api1/rs/status</a></summary>
 
 ```
 {
@@ -135,7 +146,10 @@ node server
 }
 ```
 
-[11] [maxdome-onboard.de/api/v1/info/trainenvironmentdata](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata)
+</details>
+
+<details>
+  <summary> [11] <a href="https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata">maxdome-onboard.de/api/v1/info/trainenvironmentdata</a></summary>
 
 ```
 {
@@ -159,3 +173,5 @@ node server
     }
 }
 ```
+
+</details>
