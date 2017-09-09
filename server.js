@@ -1,6 +1,18 @@
 // http://expressjs.com/api.html
 const express = require('express');
 const application = express();
+
+// https://github.com/expressjs/cors#configuration-options
+const cors_config = {
+  origin: [/^hacker-bastl\.github\.io$/, /0\.0\.0\.0/],
+  optionsSuccessStatus: 200,
+};
+// https://github.com/expressjs/cors#enabling-cors-pre-flight
+const cors_module = require('cors');
+application.use('/', cors_module(cors_config));
+application.options('/', cors_module(cors_config));
+
+// https://expressjs.com/starter/static-files.html
 application.use(express.static(__dirname + '/docs'));
 application.use(require('body-parser').json());
 // determine database type (heroku or local?)
