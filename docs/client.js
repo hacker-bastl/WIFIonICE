@@ -14,6 +14,11 @@ const WIFIonICE = window.WIFIonICE = {
   baseURL: '', // TODO
 };
 
+// TODO !?
+
+if (['herokuapp.com', 'github.io'].indexOf(location.host.split(/\./g).slice(-2).join('.')) > -1)
+  WIFIonICE.baseURL = location.protocol + '//fierce-castle-41016.herokuapp.com';
+
 // http://leafletjs.com/reference-1.2.0.html#circle
 
 WIFIonICE.displayMeasurements = function(measurements) {
