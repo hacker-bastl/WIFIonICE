@@ -16,7 +16,7 @@ const postgres = require('pg');
 var database = new postgres.Pool(configuration);
 database.connect(function(error, client, done) {
   if (!!error) throw error;
-  var command = 'CREATE TABLE IF NOT EXISTS omboard ( timestamp BIGINT, latitude DOUBLE PRECISION, longitude DOUBLE PRECISION, bwmax TEXT, radioStatus TEXT, wifiStatus TEXT )';
+  var command = 'CREATE TABLE IF NOT EXISTS omboard ( timestamp BIGINT, latitude DOUBLE PRECISION, longitude DOUBLE PRECISION, locomotiveId BIGINT, trainNumber BIGINT, bwmax TEXT, radioStatus TEXT, wifiStatus TEXT )';
   client.query(command, [], function(error) {
     done();
     if (!!error) throw error;
@@ -33,8 +33,8 @@ router.post('/db/:timestamp', function(request, response) {
   var database = new postgres.Pool(configuration);
   database.connect(function(error, client, done) {
     if (!!error) response.status(503).send(error.message);
-    var command = 'INSERT INTO omboard VALUES ( $1, $2, $3, $4, $5, $6 )';
-    var values = [parseInt(request.params.timestamp), parseFloat(request.body.location.latitude), parseFloat(request.body.location.longitude), request.body.connection.bwmax, request.body.connection.radioStatus, request.body.connection.wifiStatus, ];
+    var command = 'INSERT INTO omboard VALUES ( $1, $2, $3, $4, $5, $6, $7, $8 )';
+    var values = [parseInt(request.params.timestamp), parseFloat(request.body.location.latitude), parseFloat(request.body.location.longitude), parseInt(request.body.locomotiveId), parseInt(request.body.trainNumber), request.body.connection.bwmax, request.body.connection.radioStatus, request.body.connection.wifiStatus, ];
     client.query(command, values, function(error, result) {
       done();
       if (!!error) response.status(503).send(error.message);

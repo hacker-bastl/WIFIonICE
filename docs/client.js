@@ -1,5 +1,7 @@
+// https://github.com/hacker-bastl/omboard
+
 const WIFIonICE = window.WIFIonICE = {
-  baseURL: location.host != 'localhost' ?
+  baseURL: location.host.split(':').shift() != 'localhost' ?
     '//fierce-castle-41016.herokuapp.com' : '', // TODO !?
   requestTimeout: 60 * 1E3,
   requestsPerMinute: 20,
@@ -25,11 +27,8 @@ WIFIonICE.displayMeasurements = function(measurements) {
       color: 'red', // TODO: css?
       radius: 4,
     }).addTo(WIFIonICE.leafletMap);
-    node.addEventListener('click', function(event) {
-      WIFIonICE.leafletMap.openTooltip(JSON
-        .stringify(entry, null, 4), [entry.longitude, entry.latitude], {
-          direction: 'bottom',
-        });
+    node.addEventListener('click', function() {
+      console.info(entry);
     });
     return node;
   });
@@ -62,7 +61,7 @@ WIFIonICE.storeMeasurement = function(dataset) {
   });
   var request = new XMLHttpRequest();
   request.addEventListener('loadend', function() {
-    WIFIonICE.leafletMap.setView([dataset.location.latitude, dataset.location.longitude], 13);
+    WIFIonICE.leafletMap.setView([dataset.location.latitude, dataset.location.longitude], 9); // 13? TODO
     WIFIonICE.displayMeasurements([{
       longitude: dataset.location.longitude,
       latitude: dataset.location.latitude,
@@ -78,14 +77,15 @@ WIFIonICE.storeMeasurement = function(dataset) {
 };
 
 WIFIonICE.updateMeasurement = setInterval(function() {
+  var address = 'https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata';
   var request = new XMLHttpRequest();
   request.addEventListener('load', function() {
-    if (request.responseText == '{}') {
-      console.error('not connected to "WIFIonICE"?');
-      clearInterval(WIFIonICE.updateMeasurement);
-    } else WIFIonICE.storeMeasurement(JSON.parse(request.responseText));
+    if (request.responseText != '{}')
+      return WIFIonICE.storeMeasurement(JSON.parse(request.responseText));
+    else console.error('not connected to "WIFIonICE"?');
+    clearInterval(WIFIonICE.updateMeasurement);
   });
-  request.open('GET', 'https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata');
+  request.open('GET', address);
   request.send(null);
 }, parseInt(60 / WIFIonICE.requestsPerMinute) * 1E3);
 
