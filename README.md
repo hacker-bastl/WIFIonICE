@@ -135,9 +135,11 @@ Die geringe technische Komplexität des beschriebenen Themas steht in starkem Ge
 ### "Umnutzung"
 
 Vielleicht kann man diese Datenschutz-Lücke aber auch "sinnvoll" einsetzen?
+Viele Kunden scheinen enttäuscht von der "WLAN-Abdeckung"
 (siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
+... wie wäre es mit einer Karte der "WIFIonICE-Verfügbarkeit"? :wink:
 
-- [server.js](server.js) → [nodejs](https://nodejs.org/api/) / [express](http://expressjs.com/api.html) application
-  - [db/postgress.js](db/postgress.js) → database [on heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-  - [db/sqlite3.js](db/sqlite3.js) → development database
-- [public](public) → [leafletjs](http://leafletjs.com/reference.html) / [openstreetmap](https://www.openstreetmap.org/)
+- Karte: [public](public) ([leafletjs](http://leafletjs.com/reference.html) / [openstreetmap](https://www.openstreetmap.org/))
+- Datenbank: [server.js](server.js) ([nodejs](https://nodejs.org/api/) / [express](http://expressjs.com/api.html))
+  - [postgress.js](database/postgress.js) (db [on heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs))
+  - [sqlite3.js](database/sqlite3.js) ("offline" db)
