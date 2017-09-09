@@ -4,7 +4,7 @@ const application = express();
 
 // https://github.com/expressjs/cors#configuration-options
 const cors_config = {
-  origin: [/^hacker-bastl\.github\.io$/, /0\.0\.0\.0/],
+  origin: [/^https:\/+hacker-bastl\.github\.io$/, /0\.0\.0\.0/],
   optionsSuccessStatus: 200,
 };
 // https://github.com/expressjs/cors#enabling-cors-pre-flight
