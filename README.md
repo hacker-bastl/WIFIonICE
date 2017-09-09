@@ -131,3 +131,13 @@ Ein Teil der beschriebenen Daten ist immer noch über eine vierte Schnittstelle 
 ### Einschätzung
 
 Die geringe technische Komplexität des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt mich befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)" :disappointed:
+
+### "Umnutzung"
+
+Vielleicht kann man diese Datenschutz-Lücke aber auch "sinnvoll" einsetzen?
+(siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
+
+- [server.js](server.js) → [nodejs](https://nodejs.org/api/) / [express](http://expressjs.com/api.html) application
+  - [db/postgress.js](db/postgress.js) → database [on heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
+  - [db/sqlite3.js](db/sqlite3.js) → development database
+- [public](public) → [leafletjs](http://leafletjs.com/reference.html) / [openstreetmap](https://www.openstreetmap.org/)
