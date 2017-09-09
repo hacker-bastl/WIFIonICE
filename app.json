@@ -1,7 +1,0 @@
-{
-  "name": "Omboard #WIFIonICE Map",
-  "keywords": ["db", "bahn", "ice", "map", "wifionice", "wlan"],
-  "description": "display and store ICE WIFI quality measurements",
-  "repository": "https://github.com/hacker-bastl/omboard",
-  "image": "heroku/nodejs"
-}
