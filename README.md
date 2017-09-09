@@ -54,18 +54,15 @@ Die geringe technische Komplexität des beschriebenen Themas steht in starkem Ge
 Vielleicht kann man diese Datenschutz-Lücke aber auch "sinnvoll" einsetzen?
 Viele Kunden scheinen enttäuscht von der "WLAN-Abdeckung"
 (siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
-... wie wäre es mit einer Karte der "WIFIonICE-Verfügbarkeit"? :wink:
-
-- [Karte](public) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
-- [Datenbank](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html)
-
-### Getting Started
+Vielleicht hilft da eine Visualisierung der genauen "WIFIonICE-Verfügbarkeit"?
+z.B. eine [Datenbank](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und eine [Karte](public) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)?
 
 Test / Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](database/postgress.js))
 
 ```bash
 git clone https://github.com/hacker-bastl/omboard.git
 cd omboard
+heroku login
 heroku create
 heroku addons:create heroku-postgresql:hobby-dev
 git push heroku master

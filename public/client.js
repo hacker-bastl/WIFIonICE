@@ -37,9 +37,13 @@ WIFIonICE.loadMeasurements = function() {
     WIFIonICE.displayMeasurements(JSON.parse(request.responseText));
   });
   var area = WIFIonICE.leafletMap.getBounds();
-  var southWest = area._southWest.lat + '/' + area._southWest.lng;
-  var northEast = area._northEast.lat + '/' + area._northEast.lng;
-  request.open('GET', '/db' + '/' + southWest + '/' + northEast);
+  var address = L.Util.template('/db/{swLat}/{swLon}/{neLat}/{neLon}', {
+    swLat: area._southWest.lat,
+    swLon: area._southWest.lng,
+    neLat: area._northEast.lat,
+    neLon: area._northEast.lng,
+  });
+  request.open('GET', address);
   request.send(null);
 };
 
@@ -50,24 +54,75 @@ WIFIonICE.storeMeasurement = function(dataset) {
   request.send(JSON.stringify(dataset));
 };
 
-// http://leafletjs.com/examples/quick-start/
-
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
-}).addTo(WIFIonICE.leafletMap);
-
-['load', 'moveend', 'resize', 'zoomend', 'zoomlevelschange'].forEach(function(event) {
+['moveend', 'resize', 'zoomend'].forEach(function(event) {
   L.DomEvent.on(WIFIonICE.leafletMap, event, WIFIonICE.updateMap);
 });
 
-WIFIonICE.storeMeasurement({
-  location: {
-    longitude: 50.1068429,
-    latitude: 8.6401972,
+// http://leafletjs.com/examples/quick-start/
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+  attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a>',
+}).addTo(WIFIonICE.leafletMap);
+
+WIFIonICE.statusButton = L.Control.extend({
+  checkStatus: function(link) {
+    setInterval(function() {
+      var request = new XMLHttpRequest();
+      request.addEventListener('loadend', function() {
+        var online = request.statusText == 'OK';
+        link.title = online ? 'online' : 'offline';
+        link.textContent = online ? '◉' : '◎';
+      });
+      request.open('HEAD', 'https://portal.imice.de/api1/rs/status');
+      request.send(null);
+    }, 30 * 1E3);
   },
-  connection: {
-    bwmax: 'test',
-    radioStatus: 'test',
-    wifiStatus: 'test',
-  }
+  createControls: function() {
+    var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+    container.style.backgroundColor = 'white';
+    container.style.lineHeight = '26px';
+    container.style.fontSize = '26px';
+    container.style.width = '30px';
+    container.style.height = '30px';
+    container.style.textAlign = 'center';
+    return container;
+  },
+  createButton: function() {
+    var link = this._statusLink = L.DomUtil.create('a', 'leaflet-bar leaflet-control leaflet-control-custom');
+    link.className = 'leaflet-control-zoom-in';
+    link.style.cursor = 'pointer';
+    link.style.lineHeight = '30px';
+    link.style.width = '30px';
+    link.title = 'offline';
+    link.role = 'button';
+    link.textContent = '◎';
+    link.href = '#';
+    return link;
+  },
+  onAdd: function(map) {
+    var container = this.createControls();
+    var link = this.createButton()
+    container.appendChild(link);
+    this.checkStatus(link);
+    return container;
+  },
+  options: {
+    position: 'topright',
+  },
 });
+
+
+WIFIonICE.leafletMap.addControl(new WIFIonICE.statusButton());
+
+if (false) // TESTING
+  WIFIonICE.storeMeasurement({
+    location: {
+      longitude: 50.1068429,
+      latitude: 8.6401972,
+    },
+    connection: {
+      bwmax: 'test',
+      radioStatus: 'test',
+      wifiStatus: 'test',
+    }
+  });
