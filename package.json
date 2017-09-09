@@ -10,7 +10,8 @@
     "start": "node application.js"
   },
   "engines": {
-    "node": "*"
+    "node": "*",
+    "npm":"*"
   },
   "dependencies": {
     "body-parser": "*",

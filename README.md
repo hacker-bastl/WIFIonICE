@@ -1,6 +1,6 @@
 ### Für Bahn-Fahrer...
 
-Viele Bahn-Kunden [scheinen enttäuscht](https://twitter.com/hashtag/WiFioniCE?src=hash) über die "WLAN-Abdeckung" im ICE ...
+Viele Bahn-Kunden [scheinen enttäuscht](https://twitter.com/hashtag/WiFioniCE?src=hash) über die "WLAN-Qualität" im ICE ...
 
 <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-safari.png?v.0.2" width="400" height="400" /></kbd> <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-chrome.png?v.0.2" width="400" height="400" /></kbd>
 
@@ -13,7 +13,7 @@ Viele Bahn-Kunden [scheinen enttäuscht](https://twitter.com/hashtag/WiFioniCE?s
 
 :warning: Wenn Sie den o.g. Link im ICE über das "WIFIonICE" öffnen, werden Daten von Ihrem Endgerät auf die angezeigte Karte übertragen und gespeichert:
 **die Position des Zugs, die Nummern des Zugs und der Lok, sowie Daten zur Qualität der WLAN und Funknetzverbindung**
-(Details siehe weiter unten)
+(Details siehe [Datenbank](postgres.js))
 **Wir freuen uns über jeden, der die Karte aufruft und damit aktuelle Daten zur ICE WLAN Karte beisteuert.**
 Sie helfen damit allen Mitfahren, die Informationen zur Qualität des ICE WLANs suchen.
 Sollten Sie allerdings keine Speicherung dieser Daten wünschen, sollten Sie statt dem o.g. Link lieber nur [einen Screenshot ansehen](https://hacker-bastl.github.io/omboard/screenshot-safari.png?v.0.1).
