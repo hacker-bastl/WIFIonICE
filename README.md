@@ -1,9 +1,18 @@
-Vielleicht kann man eine Datenschutz-Lücke auch "sinnvoll" einsetzen? :wink:
-Viele Kunden scheinen enttäuscht von der "WLAN-Abdeckung" (siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
-Möglicherweise kann hier eine Visualisierung der genauen "WIFIonICE-Verfügbarkeit" Transparenz schaffen?
-(z.B. eine [Datenbank](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und eine [Karte](public) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)?)
+### Für Bahn-Fahrer
+
+Viele Bahn-Kunden scheinen enttäuscht von der "WLAN-Abdeckung" (siehe [#WIFIonICE auf Twitter](https://twitter.com/hashtag/WiFioniCE?src=hash))
+Aber ist die Verfügbarkeit des "WIFIonICE" wirklich so schlecht?
+
+:round_pushpin: [hacker-bastl.github.io/omboard](https://hacker-bastl.github.io/omboard/) hier sammeln wir die Daten dazu :wink:
 
 <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-1.png" width="400" height="400" /></kbd> <kbd><img src="https://hacker-bastl.github.io/omboard/screenshot-2.png" width="400" height="400" /></kbd>
+
+(contributing info here)
+
+
+### Für Entwickler
+
+[Die Seite](https://hacker-bastl.github.io/omboard/) besteht aus einer kleinen [Anwendung](server.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einer [Karte](docs) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
 
 Test / Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](database/postgress.js))
 
@@ -70,17 +79,17 @@ Daraufhin werden die beiden ursprünglich beschriebenen Schnittstellen umkonfigu
 Eine dritte Schnittstelle, über welche die erwähnten Daten verfügbar waren, wird [abgesichert](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Response_headers). [10]
 Ein Teil der beschriebenen Daten ist immer noch über eine vierte Schnittstelle im [Unterhaltungs-Bereich](https://inside.bahn.de/maxdome-onboard-ice/) des ICE-Portals verfügbar. [11]
 
-- [8] [JSONP API ombord.info](https://www.ombord.info/api/jsonp/position/?callback=console.log) deaktiviert :no_entry_sign:
-- [9] [XML API ombord.info](https://www.ombord.info/api/xml/position/) deaktiviert :no_entry_sign:
-- [10] [JSONP API imice.de](http://portal.imice.de/api1/rs/status) geschützt :lock:
-- [11] [JSON API maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) :warning:
+- [8] :no_entry_sign: [JSONP API ombord.info](https://www.ombord.info/api/jsonp/position/?callback=console.log) deaktiviert
+- [9] :no_entry_sign: [XML API ombord.info](https://www.ombord.info/api/xml/position/) deaktiviert
+- [10] :lock: [JSONP API imice.de](http://portal.imice.de/api1/rs/status) geschützt
+- [11] :warning: [JSON API maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata)
 
 [Diese Seite](https://hacker-bastl.github.io/omboard/csrf-demo.html) ([Code](docs/csrf-demo.html)) demonstriert einen [CSRF](https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery) Zugriff ("Proof of Concept") auf die "maxdome-onboard.de" API.
 
 
 ### Einschätzung
 
-Die geringe technische Komplexität des beschriebenen Themas steht in starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt mich befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)" :disappointed:
+Die geringe technische Komplexität des beschriebenen Themas steht im starkem Gegensatz zu den vermuteten Volumina der Bahn/Icomera/Maxdome Kooperationen - das lässt mich befürchten, die Datenschutzpannen bei der Bahn sind, wie auch die regelmäßigen Verspätungen, "[nicht Pech, sondern Gier](https://www.omnisophie.com/dd288-bahnverspaetungen-sind-nicht-pech-sondern-gier-maerz-2017/)" :disappointed:
 
 
 ### Daten-Felder
