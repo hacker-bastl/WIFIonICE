@@ -2,7 +2,7 @@
 
 const WIFIonICE = window.WIFIonICE = {
   baseURL: location.host.split(':').shift() != 'localhost' ?
-    '//fierce-castle-41016.herokuapp.com' : '', // TODO !?
+    '//tranquil-lake-70936.herokuapp.com' : '', // TODO !?
   requestTimeout: 60 * 1E3,
   requestsPerMinute: 20,
   delayInput: null,
