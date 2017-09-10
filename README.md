@@ -2,7 +2,7 @@
 
 Viele Bahn-Kunden [scheinen enttäuscht](https://twitter.com/hashtag/WiFioniCE?src=hash) über die "WLAN-Qualität" im ICE ...
 
-<kbd><img src="https://github.com/hacker-bastl/omboard/raw/master/docs/screenshot-safari.png" width="400" height="400" /></kbd> <kbd><img src="https://github.com/hacker-bastl/omboard/raw/master/docs/screenshot-chrome.png" width="400" height="400" /></kbd>
+<kbd><img src="https://raw.githubusercontent.com/hacker-bastl/omboard/master/docs/screenshot-safari.png" width="400" height="400" /></kbd> <kbd><img src="https://raw.githubusercontent.com/hacker-bastl/omboard/master/docs/screenshot-chrome.png" width="400" height="400" /></kbd>
 
 :bullettrain_side: :satellite: Aber ist die Verfügbarkeit des "WIFIonICE" wirklich so schlecht? :question: :open_mouth:
 
@@ -16,7 +16,7 @@ Viele Bahn-Kunden [scheinen enttäuscht](https://twitter.com/hashtag/WiFioniCE?s
 (Details siehe [Datenbank](postgres.js))
 **Wir freuen uns über jeden, der die Karte aufruft und damit aktuelle Daten zur ICE WLAN Karte beisteuert.**
 Sie helfen damit allen Mitfahren, die Informationen zur Qualität des ICE WLANs suchen.
-Sollten Sie allerdings keine Speicherung dieser Daten wünschen, sollten Sie statt dem o.g. Link lieber nur [einen Screenshot ansehen](https://github.com/hacker-bastl/omboard/raw/master/docs/screenshot-safari.png).
+Sollten Sie allerdings keine Speicherung dieser Daten wünschen, sollten Sie statt dem o.g. Link lieber nur [einen Screenshot ansehen](https://raw.githubusercontent.com/hacker-bastl/omboard/master/docs/screenshot-safari.png).
 
 
 ### Für Entwickler...
