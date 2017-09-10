@@ -24,8 +24,13 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 WIFIonICE.displayMeasurements = function(measurements) {
   measurements.map(function(entry) {
+    var color = ;
     var node = L.circle([entry.latitude, entry.longitude], {
-      color: 'red', // TODO: css?
+      color: {
+        'HIGH': 'green',
+        'MIDDLE': 'yellow',
+        'LOW': 'red',
+      }[entry.radiostatus] || 'gray', // TODO: css?
       radius: 4,
     }).addTo(WIFIonICE.leafletMap);
     node.title = JSON.stringify(entry, null, 4);
