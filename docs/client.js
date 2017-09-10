@@ -29,7 +29,7 @@ WIFIonICE.displayMeasurements = function(measurements) {
         'HIGH': 'green',
         'MIDDLE': 'yellow',
         'LOW': 'red',
-      }[entry.radioStatus] || 'gray', // TODO: css?
+      }[entry.radioStatus || entry.radiostatus] || 'gray', // TODO!!!
       radius: 4,
     }).addTo(WIFIonICE.leafletMap);
     node.title = JSON.stringify(entry, null, 4);
