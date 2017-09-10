@@ -12,6 +12,7 @@ const WIFIonICE = window.WIFIonICE = {
 
 WIFIonICE.leafletMap = L.map('map', {
   center: [50.1068429, 8.6401972],
+  minZoom: 8,
   zoom: 9,
 });
 
@@ -44,7 +45,7 @@ WIFIonICE.displayMeasurements = function(measurements) {
 
 WIFIonICE.loadMeasurements = function() {
   var area = WIFIonICE.leafletMap.getBounds();
-  var address = L.Util.template('{address}/db/{swLon}/{swLat}/{neLon}/{neLat}', {
+  var address = L.Util.template('{address}/db/{swLat}/{swLon}/{neLat}/{neLon}', {
     address: WIFIonICE.baseURL,
     swLat: area._southWest.lat,
     swLon: area._southWest.lng,

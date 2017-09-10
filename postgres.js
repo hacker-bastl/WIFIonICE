@@ -47,7 +47,7 @@ router.post('/db/:timestamp', function(request, response) {
 
 // https://www.npmjs.com/package/pg-pool#drop-in-backwards-compatible
 
-router.get('/db/:longitudeMin/:latitudeMin/:longitudeMax/:latitudeMax', function(request, response) {
+router.get('/db/:latitudeMin/:longitudeMin/:latitudeMax/:longitudeMax', function(request, response) {
   var database = new postgres.Pool(configuration);
   database.connect(function(error, client, callback) {
     if (!!error) response.status(503).send(error.message);
