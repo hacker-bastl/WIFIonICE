@@ -67,7 +67,7 @@ WIFIonICE.storeMeasurement = function(dataset) {
   });
   var request = new XMLHttpRequest();
   request.addEventListener('loadend', function() {
-    // WIFIonICE.leafletMap.setView([dataset.location.latitude, dataset.location.longitude], 11);
+    WIFIonICE.leafletMap.setView([dataset.location.latitude, dataset.location.longitude]); // TODO?
     WIFIonICE.displayMeasurements([{
       longitude: dataset.location.longitude,
       latitude: dataset.location.latitude,
