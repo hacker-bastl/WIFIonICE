@@ -82,7 +82,7 @@ WIFIonICE.updateMeasurement = setInterval(function() {
   var address = 'https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata';
   var request = new XMLHttpRequest();
   request.addEventListener('loadend', function() {
-    if (request.status = 200 && request.responseText != '{}')
+    if (request.status == 200 && request.responseText != '{}')
       return WIFIonICE.storeMeasurement(JSON.parse(request.responseText));
     else document.title = 'not connected to "WIFIonICE"?';
     clearInterval(WIFIonICE.updateMeasurement);
