@@ -24,7 +24,6 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 WIFIonICE.displayMeasurements = function(measurements) {
   measurements.map(function(entry) {
-    var color = ;
     var node = L.circle([entry.latitude, entry.longitude], {
       color: {
         'HIGH': 'green',
