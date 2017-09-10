@@ -44,3 +44,5 @@ node server
 ```
 
 (TODO: switch from postgress / sqlite3 to [openstreetmap API](http://wiki.openstreetmap.org/wiki/API_v0.6))
+
+<a href="http://login.wifionice.de/de/wifiinfo/"><img src="http://login.wifionice.de/images/wifiinfo.jpg" /></a>
