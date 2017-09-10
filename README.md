@@ -12,7 +12,7 @@ Viele Bahn-Kunden [scheinen enttäuscht](https://twitter.com/hashtag/WiFioniCE?s
 ### Datenschutzhinweis
 
 :warning: Wenn Sie den o.g. Link im ICE über das "WIFIonICE" öffnen, werden Daten von Ihrem Endgerät auf die angezeigte "ICE WLAN Karte" übertragen und gespeichert:
-**die Position des Zugs, die Nummern des Zugs und der Lok, sowie Daten zur Qualität der WLAN und Funknetzverbindung**
+**die Position des Zugs, die Nummern des Zugs und der Lok, ein Zeitstempel, sowie Daten zur Qualität der WLAN und Funknetzverbindung**
 (Details siehe [Datenbank](postgres.js))
 **Wir freuen uns über jeden, der die "ICE WLAN Karte" aufruft und damit aktuelle Daten beisteuert.**
 Sie helfen damit allen Mitfahren, die Informationen zur Qualität des ICE WLANs suchen.
