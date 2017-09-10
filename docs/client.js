@@ -24,7 +24,7 @@ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 
 WIFIonICE.displayMeasurements = function(measurements) {
   measurements.map(function(entry) {
-    var node = L.circle([entry.longitude, entry.latitude], {
+    var node = L.circle([entry.latitude, entry.longitude], {
       color: 'red', // TODO: css?
       radius: 4,
     }).addTo(WIFIonICE.leafletMap);
@@ -40,7 +40,7 @@ WIFIonICE.displayMeasurements = function(measurements) {
 
 WIFIonICE.loadMeasurements = function() {
   var area = WIFIonICE.leafletMap.getBounds();
-  var address = L.Util.template('{address}/db/{swLat}/{swLon}/{neLat}/{neLon}', {
+  var address = L.Util.template('{address}/db/{swLon}/{swLat}/{neLon}/{neLat}', {
     address: WIFIonICE.baseURL,
     swLat: area._southWest.lat,
     swLon: area._southWest.lng,
@@ -57,7 +57,6 @@ WIFIonICE.loadMeasurements = function() {
 };
 
 WIFIonICE.storeMeasurement = function(dataset) {
-  console.log(dataset);
   var address = L.Util.template('{address}/db/{timestamp}', {
     address: WIFIonICE.baseURL,
     timestamp: new Date().getTime(),
