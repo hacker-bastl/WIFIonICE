@@ -57,6 +57,7 @@ WIFIonICE.loadMeasurements = function() {
 };
 
 WIFIonICE.storeMeasurement = function(dataset) {
+  console.log(dataset);
   var address = L.Util.template('{address}/db/{timestamp}', {
     address: WIFIonICE.baseURL,
     timestamp: new Date().getTime(),
