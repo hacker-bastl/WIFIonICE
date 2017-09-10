@@ -4,7 +4,7 @@ const WIFIonICE = window.WIFIonICE = {
   baseURL: location.host.split(':').shift() != 'localhost' ?
     '//tranquil-lake-70936.herokuapp.com' : '', // TODO !?
   requestTimeout: 60 * 1E3,
-  requestsPerMinute: 20,
+  requestsPerMinute: 4,
   delayInput: null,
 };
 
