@@ -33,11 +33,11 @@ router.post('/db/:timestamp', function(request, response) {
 
 // https://github.com/mapbox/node-sqlite3/wiki/API#databaseeachsql-param--callback-complete
 
-router.get('/db/:longitudeMin/:latitudeMin/:longitudeMax/:latitudeMax', function(request, response) {
+router.get('/db/:latitudeMin/:longitudeMin/:latitudeMax/:longitudeMax', function(request, response) {
   var database = new sqlite3.Database('./database.sqlite3', function(error) {
     if (!!error) response.status(503).send(error.message);
     else database.serialize(function() {
-      var command = 'SELECT * FROM omboard WHERE latitude > $latitudeMin AND latitude < $latitudeMax AND longitude > $longitudeMin AND longitude < $longitudeMax';
+      var command = 'SELECT * FROM omboard WHERE latitude > $latitudeMin AND latitude < $latitudeMax AND longitude > $longitudeMin AND longitude < $longitudeMax ORDER BY timestamp DESC LIMIT 200';
       var values = [String(request.params.latitudeMin), String(request.params.latitudeMax), String(request.params.longitudeMin), String(request.params.longitudeMax)];
       var result = [];
       database.each(command, values, function(error, row) {
