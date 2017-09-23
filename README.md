@@ -56,8 +56,6 @@ Das ganze ICE Portal wurde [auf HTTPS umgestellt](https://twitter.com/macbastl/s
 - [10] :lock: [JSONP API imice.de](http://portal.imice.de/api1/rs/status) geschützt
 - [11] :lock: [JSON API maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) geschützt
 
-[Diese Seite](https://hacker-bastl.github.io/omboard/csrf-demo.html) ([Code](docs/csrf-demo.html)) demonstriert den [CSRF](https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery) Zugriff auf die "maxdome-onboard.de" API.
-
 
 ### die Daten
 
