@@ -38,6 +38,12 @@ WIFIonICE.displayMeasurements = function(measurements) {
     outdated.remove(); // TODO: smells...
   });
   WIFIonICE.cachedNodes = measurements.map(function(entry) {
+
+    // TODO: WTF?
+    if (!!entry.radiostatus) entry.radioStatus = entry.radiostatus;
+    if (!!entry.trainnumber) entry.trainNumber = entry.trainnumber;
+    if (!!entry.radiostatus) entry.radioStatus = entry.radiostatus;
+
     var node = L.circle([entry.latitude, entry.longitude], {
       color: {
         'HIGH': '#33cc99',
