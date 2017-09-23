@@ -59,7 +59,11 @@ WIFIonICE.displayMeasurements = function(measurements) {
       radius: 8,
       weight: 2,
     }).addTo(WIFIonICE.leafletMap);
-    node.bindTooltip(L.Util.template(title, entry));
+
+    // TODO: WTF?
+    if (!!entry.trainNumber && !!entry.radioStatus)
+      node.bindTooltip(L.Util.template(title, entry));
+
     node.addEventListener('click', function() {
       location.hash = '#' + entry.latitude + '/' + entry.longitude;
       console.info(entry);
