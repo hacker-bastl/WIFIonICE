@@ -38,9 +38,9 @@ Diesbezügliche Medienberichte kommentierte ein Firmensprecher der Bahn wie folg
 
 <kbd><img src="https://raw.githubusercontent.com/hacker-bastl/omboard/master/docs/screenshot-safari.png" width="400" height="400" /></kbd> <kbd><img src="https://raw.githubusercontent.com/hacker-bastl/omboard/master/docs/screenshot-chrome.png" width="400" height="400" /></kbd>
 
-Mit dem Code in diesem Repository konnte man einige der o.g. Daten verwenden, um eine Karte der WIFIonICE Qualität zu erstellen.
-Die Schnittstellen waren über ein Jahr lang ungesichert.
-Einen Tag nach Release der [Version 1.0](https://github.com/hacker-bastl/omboard/tree/v1.0#readme) wurden alle Schnittstellen abgesichert. :wink:
+Mit [dem Code in diesem Repository](https://github.com/hacker-bastl/omboard/tree/v1.0#readme) konnte man einige der o.g. APIs verwenden, um eine Karte der WIFIonICE Qualität zu erstellen.
+Die APIs waren über ein Jahr lang ungesichert.
+Einen Tag nach Release der [Version 1.0](https://github.com/hacker-bastl/omboard/releases/tag/v1.0) wurden alle Schnittstellen abgesichert. :wink:
 
 
 ### das Ende
@@ -59,7 +59,7 @@ Das ganze ICE Portal wurde [auf HTTPS umgestellt](https://twitter.com/macbastl/s
 [Diese Seite](https://hacker-bastl.github.io/omboard/csrf-demo.html) ([Code](docs/csrf-demo.html)) demonstriert den [CSRF](https://de.wikipedia.org/wiki/Cross-Site-Request-Forgery) Zugriff auf die "maxdome-onboard.de" API.
 
 
-### die Felder
+### die Daten
 
 <details>
   <summary> [8] <a href="https://www.ombord.info/api/jsonp/user/?callback=console.log">www.ombord.info/api/jsonp/user</a></summary>
