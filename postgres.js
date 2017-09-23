@@ -47,11 +47,11 @@ router.post('/db/:timestamp', function(request, response) {
 
 // https://www.npmjs.com/package/pg-pool#drop-in-backwards-compatible
 
-router.get('/db/:longitudeMin/:latitudeMin/:longitudeMax/:latitudeMax', function(request, response) {
+router.get('/db/:latitudeMin/:longitudeMin/:latitudeMax/:longitudeMax', function(request, response) {
   var database = new postgres.Pool(configuration);
   database.connect(function(error, client, callback) {
     if (!!error) response.status(503).send(error.message);
-    var command = 'SELECT * FROM omboard WHERE latitude > $1 AND latitude < $2 AND longitude > $3 AND longitude < $4';
+    var command = 'SELECT * FROM omboard WHERE latitude > $1 AND latitude < $2 AND longitude > $3 AND longitude < $4 ORDER BY timestamp DESC LIMIT 200';
     var values = [request.params.latitudeMin, request.params.latitudeMax, request.params.longitudeMin, request.params.longitudeMax];
     client.query(command, values, function(error, result) {
       callback();
