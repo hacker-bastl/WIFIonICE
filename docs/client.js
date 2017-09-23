@@ -1,4 +1,4 @@
-// https://github.com/hacker-bastl/omboard
+// https://github.com/hacker-bastl/WIFIonICE
 
 const WIFIonICE = window.WIFIonICE = {
   baseURL: location.host.split(':').shift() != 'localhost' ?
@@ -23,7 +23,7 @@ WIFIonICE.leafletMap = L.map('map', {
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
   attribution: '<a href="http://osm.org/copyright">OpenStreetMap</a> | ' +
-    '<a href="https://github.com/hacker-bastl/omboard#readme">WIFIonICE</a>',
+    '<a href="https://github.com/hacker-bastl/WIFIonICE#readme">WIFIonICE</a>',
 }).addTo(WIFIonICE.leafletMap);
 
 // "old" nodes (removed on update - prevent dublicates)
@@ -82,7 +82,7 @@ WIFIonICE.loadMeasurements = function() {
   request.send(null);
 };
 
-// https://github.com/hacker-bastl/omboard/blob/master/postgres.js
+// https://github.com/hacker-bastl/WIFIonICE/blob/master/postgres.js
 
 WIFIonICE.storeMeasurement = function(dataset) {
   var address = L.Util.template('{address}/db/{timestamp}', {
@@ -107,7 +107,7 @@ WIFIonICE.storeMeasurement = function(dataset) {
   request.send(JSON.stringify(dataset));
 };
 
-// https://github.com/hacker-bastl/omboard/blob/v0.9/README.md#hintergrund
+// https://github.com/hacker-bastl/WIFIonICE/blob/v0.9/README.md#hintergrund
 
 WIFIonICE.updateMeasurement = setInterval(function() {
   var address = 'https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata';
