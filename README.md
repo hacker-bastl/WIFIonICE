@@ -36,11 +36,11 @@ Diesbezügliche Medienberichte kommentierte ein Firmensprecher der Bahn wie folg
 
 ### die Karte
 
-<kbd><img src="https://raw.githubusercontent.com/hacker-bastl/omboard/master/docs/screenshot-safari.png" width="400" height="400" /></kbd> <kbd><img src="https://raw.githubusercontent.com/hacker-bastl/omboard/master/docs/screenshot-chrome.png" width="400" height="400" /></kbd>
+<kbd><img src="https://raw.githubusercontent.com/hacker-bastl/WIFIonICE/master/docs/screenshot-safari.png" width="400" height="400" /></kbd> <kbd><img src="https://raw.githubusercontent.com/hacker-bastl/WIFIonICE/master/docs/screenshot-chrome.png" width="400" height="400" /></kbd>
 
-Mit [dem Code in diesem Repository](https://github.com/hacker-bastl/omboard/tree/v1.0#readme) konnte man einige der o.g. APIs verwenden, um eine Karte der WIFIonICE Qualität zu erstellen.
+Mit [dem Code in diesem Repository](https://github.com/hacker-bastl/WIFIonICE/tree/v1.0#readme) konnte man einige der o.g. APIs verwenden, um eine Karte der WIFIonICE Qualität zu erstellen.
 Die APIs waren über ein Jahr lang ungesichert.
-Einen Tag nach Release der [Version 1.0](https://github.com/hacker-bastl/omboard/releases/tag/v1.0) wurden alle Schnittstellen abgesichert. :wink:
+Einen Tag nach Release der [Version 1.0](https://github.com/hacker-bastl/WIFIonICE/releases/tag/v1.0) wurden alle Schnittstellen abgesichert. :wink:
 
 
 ### das Ende
