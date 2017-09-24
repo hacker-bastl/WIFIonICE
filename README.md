@@ -138,8 +138,8 @@ Diese App besteht aus einem [Server](application.js) mit [Nodejs](https://nodejs
 Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](postgress.js))
 
 ```bash
-git clone https://github.com/hacker-bastl/omboard.git
-cd omboard
+git clone https://github.com/hacker-bastl/WIFIonICE.git
+cd WIFIonICE
 heroku login
 heroku create
 heroku addons:create heroku-postgresql:hobby-dev
@@ -149,8 +149,8 @@ git push heroku master
 Lokaler / "offline" Test (mit [SQLite3 DB](sqlite3.js))
 
 ```bash
-git clone https://github.com/hacker-bastl/omboard.git
-cd omboard
+git clone https://github.com/hacker-bastl/WIFIonICE.git
+cd WIFIonICE
 npm install
 node server
 ```
