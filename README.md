@@ -132,10 +132,11 @@ Das ganze ICE Portal wurde [auf HTTPS umgestellt](https://twitter.com/macbastl/s
 
 </details>
 
+<br />
 
 Diese App besteht aus einem [Server](application.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einem [Client](docs/client.js) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
 
-Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](postgress.js))
+Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](postgres.js))
 
 ```bash
 git clone https://github.com/hacker-bastl/WIFIonICE.git
