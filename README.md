@@ -1,27 +1,3 @@
-Diese App besteht aus einem [Server](application.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einem [Client](docs/client.js) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
-
-Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](postgress.js))
-
-```bash
-git clone https://github.com/hacker-bastl/omboard.git
-cd omboard
-heroku login
-heroku create
-heroku addons:create heroku-postgresql:hobby-dev
-git push heroku master
-```
-
-Lokaler / "offline" Test (mit [SQLite3 DB](sqlite3.js))
-
-```bash
-git clone https://github.com/hacker-bastl/omboard.git
-cd omboard
-npm install
-node server
-```
-
-(TODO: switch from postgress / sqlite3 to [openstreetmap API](http://wiki.openstreetmap.org/wiki/API_v0.6)?)
-
 <img src="https://raw.githubusercontent.com/hacker-bastl/WIFIonICE/master/docs/screenshot-safari.png" width="400" height="400" /> <img src="https://raw.githubusercontent.com/hacker-bastl/WIFIonICE/master/docs/screenshot-chrome.png" width="400" height="400" />
 
 In 2016 wurden über das [WLAN im ICE](https://inside.bahn.de/wifionice-wlan-ice-login/) verschiedene [personenbeziehbaren Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten) (z.B. MAC-Adresse, Aufenthaltsort des Zuges, Wagenklasse, etc.) über [Schnittstellen](https://de.wikipedia.org/wiki/Programmierschnittstelle) (APIs) zugänglich gemacht.
@@ -155,3 +131,28 @@ Das ganze ICE Portal wurde [auf HTTPS umgestellt](https://twitter.com/macbastl/s
 ```
 
 </details>
+
+
+Diese App besteht aus einem [Server](application.js) mit [Nodejs](https://nodejs.org/api/) / [Express](http://expressjs.com/api.html) und einem [Client](docs/client.js) mit [Leafletjs](http://leafletjs.com/reference.html) / [OpenStreetMap](https://www.openstreetmap.org/)
+
+Deployment auf [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction) (mit [Postgress DB](postgress.js))
+
+```bash
+git clone https://github.com/hacker-bastl/WIFIonICE.git
+cd WIFIonICE
+heroku login
+heroku create
+heroku addons:create heroku-postgresql:hobby-dev
+git push heroku master
+```
+
+Lokaler / "offline" Test (mit [SQLite3 DB](sqlite3.js))
+
+```bash
+git clone https://github.com/hacker-bastl/WIFIonICE.git
+cd WIFIonICE
+npm install
+node server
+```
+
+(TODO: switch from postgress / sqlite3 to [openstreetmap API](http://wiki.openstreetmap.org/wiki/API_v0.6)?)
