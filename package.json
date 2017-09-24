@@ -1,8 +1,8 @@
 {
-  "name": "omboard-info",
+  "name": "WIFIonICE",
   "license": "WTFPL",
   "repository": {
-    "url": "https://github.com/hacker-bastl/omboard",
+    "url": "https://github.com/hacker-bastl/WIFIonICE",
     "type": "git"
   },
   "main": "application.js",
