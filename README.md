@@ -1,4 +1,4 @@
-### der Anfang
+<kbd><img src="https://raw.githubusercontent.com/hacker-bastl/WIFIonICE/master/docs/screenshot-safari.png" width="400" height="400" /></kbd> <kbd><img src="https://raw.githubusercontent.com/hacker-bastl/WIFIonICE/master/docs/screenshot-chrome.png" width="400" height="400" /></kbd>
 
 In 2016 wurden über das [WLAN im ICE](https://inside.bahn.de/wifionice-wlan-ice-login/) verschiedene [personenbeziehbaren Daten](https://de.wikipedia.org/wiki/Personenbezogene_Daten) (z.B. MAC-Adresse, Aufenthaltsort des Zuges, Wagenklasse, etc.) über [Schnittstellen](https://de.wikipedia.org/wiki/Programmierschnittstelle) (APIs) zugänglich gemacht.
 Da diese Schnittstellen nicht bzw. nur mangelhaft abgesichert waren, konnten beliebige (auch nicht dafür authorisierte) Webseiten diese Daten auslesen.
@@ -7,8 +7,6 @@ Da diese Schnittstellen nicht bzw. nur mangelhaft abgesichert waren, konnten bel
 
 - von / siehe "[Datenschutz im DB-Konzern](http://www.deutschebahn.com/de/konzern/datenschutz/vorstellung_datenschutz.html)"
 
-
-### der Ablauf
 
 Im Herbst 2016 wurde die Deutsche Bahn über diese Sicherheitslücke informiert. [1]
 Es folgten entsprechende Berichte in den Medien. [2]
@@ -34,33 +32,14 @@ Diesbezügliche Medienberichte kommentierte ein Firmensprecher der Bahn wie folg
 - [8] 2017/07/17 "[WIFIonICE: CCC warnt vor anhaltendem Sicherheitsproblem beim Bahn-WLAN](https://www.heise.de/newsticker/meldung/WIFIonICE-CCC-warnt-vor-anhaltendem-Sicherheitsproblem-beim-Bahn-WLAN-3773839.html)" ([Heise](https://www.heise.de/security/news/))
 
 
-### die Karte
-
-<kbd><img src="https://raw.githubusercontent.com/hacker-bastl/WIFIonICE/master/docs/screenshot-safari.png" width="400" height="400" /></kbd> <kbd><img src="https://raw.githubusercontent.com/hacker-bastl/WIFIonICE/master/docs/screenshot-chrome.png" width="400" height="400" /></kbd>
-
-Mit [dem Code in diesem Repository](https://github.com/hacker-bastl/WIFIonICE/tree/v1.0#readme) konnte man einige der o.g. APIs verwenden, um eine Karte der WIFIonICE Qualität zu erstellen.
-Die APIs waren über ein Jahr lang ungesichert.
-Einen Tag nach Release der [Version 1.0](https://github.com/hacker-bastl/WIFIonICE/releases/tag/v1.0) wurden alle Schnittstellen abgesichert. :wink:
-
-
-### das Ende
-
-Ende Juli 2017 wurden die beiden ursprünglich beschriebenen Schnittstellen umkonfiguriert und waren nun nicht mehr erreichbar. [8] [9]
-Eine dritte Schnittstelle, über welche die erwähnten Daten verfügbar waren, wurde [abgesichert](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Response_headers). [10]
-Ein Teil der beschriebenen Daten war immer noch über eine vierte Schnittstelle im [Unterhaltungs-Bereich](https://inside.bahn.de/maxdome-onboard-ice/) des ICE-Portals verfügbar. [11]
+Ende Juli 2017 wurden die beiden ursprünglich beschriebenen Schnittstellen umkonfiguriert und waren nun nicht mehr erreichbar. [9] [10]
+Eine dritte Schnittstelle, über welche die erwähnten Daten verfügbar waren, wurde [abgesichert](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Response_headers). [11]
+Ein Teil der beschriebenen Daten war immer noch über eine vierte Schnittstelle im [Unterhaltungs-Bereich](https://inside.bahn.de/maxdome-onboard-ice/) des ICE-Portals verfügbar. [12]
 Diese wurde im September [ebenfalls abgesichtert](https://twitter.com/macbastl/status/907329552858435586).
 Das ganze ICE Portal wurde [auf HTTPS umgestellt](https://twitter.com/macbastl/status/906957691087675393).
 
-- [8] :no_entry_sign: [JSONP API ombord.info](https://www.ombord.info/api/jsonp/position/?callback=console.log) deaktiviert
-- [9] :no_entry_sign: [XML API ombord.info](https://www.ombord.info/api/xml/position/) deaktiviert
-- [10] :lock: [JSONP API imice.de](http://portal.imice.de/api1/rs/status) geschützt
-- [11] :lock: [JSON API maxdome-onboard.de](https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata) geschützt
-
-
-### die Daten
-
 <details>
-  <summary> [8] <a href="https://www.ombord.info/api/jsonp/user/?callback=console.log">www.ombord.info/api/jsonp/user</a></summary>
+  <summary> [9] <a href="https://www.ombord.info/api/jsonp/user/?callback=console.log">www.ombord.info/api/jsonp/user</a></summary>
 
 ```json
 ({
@@ -87,7 +66,7 @@ Das ganze ICE Portal wurde [auf HTTPS umgestellt](https://twitter.com/macbastl/s
 </details>
 
 <details>
-  <summary> [9] <a href="https://www.ombord.info/api/xml/position/">www.ombord.info/api/xml/position</a></summary>
+  <summary> [10] <a href="https://www.ombord.info/api/xml/position/">www.ombord.info/api/xml/position</a></summary>
 
 ```xml
 <position version="1.0">
@@ -106,7 +85,7 @@ Das ganze ICE Portal wurde [auf HTTPS umgestellt](https://twitter.com/macbastl/s
 </details>
 
 <details>
-  <summary> [10] <a href="http://portal.imice.de/api1/rs/status">imice.de/api1/rs/status</a></summary>
+  <summary> [11] <a href="http://portal.imice.de/api1/rs/status">imice.de/api1/rs/status</a></summary>
 
 ```json
 {
@@ -124,7 +103,7 @@ Das ganze ICE Portal wurde [auf HTTPS umgestellt](https://twitter.com/macbastl/s
 </details>
 
 <details>
-  <summary> [11] <a href="https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata">maxdome-onboard.de/api/v1/info/trainenvironmentdata</a></summary>
+  <summary> [12] <a href="https://skidbladnir.maxdome-onboard.de/api/v1/info/trainenvironmentdata">maxdome-onboard.de/api/v1/info/trainenvironmentdata</a></summary>
 
 ```json
 {
