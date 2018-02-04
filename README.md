@@ -7,3 +7,5 @@ Mit dieser dem Code in diesem Repository konnten die Daten über eine "Client-se
 
 Im Sommer / Herbst 2017 wurden die o.g. APIs [abgesichert](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing#Response_headers) (und das ganze ICE Portal wurde [auf HTTPS umgestellt](https://twitter.com/macbastl/status/906957691087675393)) - der Zugriff über eine Webseite funktioniert nun nicht mehr.
 Um weiterhin Daten über die Qualität des ICE WLAN erheben zu können, wurde [Version 2](https://github.com/hacker-bastl/WIFIonICE/tree/v2.0#readme) als "Server-seitige" Anwendung erstellt - diese kann z.B. [auf einem Raspberry Pi](https://twitter.com/macbastl/status/960056325492355072) betrieben werden.
+
+Der Code zur automatischen Anmeldung am ICE WLAN [findet sich hier](https://gist.github.com/147718dcc637e150bfa394e7491ff84c).
