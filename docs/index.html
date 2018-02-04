@@ -7,18 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="//www.bahn.de/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="//www.bahn.de/common/view/static/v8/img/db_em_rgb_100px.svg" rel="apple-touch-icon" type="image/svg" />
-    <meta name="author" content="https://github.com/hacker-bastl/omboard" />
+    <meta name="author" content="https://github.com/hacker-bastl" />
 
     <title> #WIFIonICE </title>
 
     <!-- http://leafletjs.com/examples/quick-start/ -->
     <link href="leaflet.css" type="text/css" rel="stylesheet" />
     <script src="leaflet.js" type="text/javascript"></script>
+
+    <!-- https://www.eclipse.org/paho/clients/js/ -->
+    <script src="mqttws31.min.js" type="text/javascript"></script>
+
     <script src="client.js" type="text/javascript" defer></script>
     <style type="text/css">
+
       html, body { height: 100%; }
       #map { height: 98%; }
       img.leaflet-tile { filter: grayscale( 80% ) brightness( 1.1 ); }
+
     </style>
   </head>
   <body>
